@@ -8,13 +8,14 @@
 
 1. 이 저장소를 회사 컴퓨터에 복제합니다.
 2. Codex에서 복제한 폴더를 열고 `docs/handoff.md`와 `docs/product-plan.md`를 읽도록 요청합니다.
-3. 디자인 방향과 남은 정책을 정한 뒤 구현을 시작합니다.
+3. 기획 문서의 남은 결정 사항을 먼저 정리한 뒤 디자인과 구현을 시작합니다.
 
 ## 파일 안내
 
 - [확정 기획과 미정 사항](docs/product-plan.md)
+- [서버 개발 협업 전달서](docs/server-collaboration-brief.md)
 - [다음 작업자를 위한 인계](docs/handoff.md)
 - [기존 요니버스 앱 배경](docs/yoniverse-context.md)
 - [시안과 참고 이미지 안내](assets/README.md)
 
-마지막 정리: 2026년 10월 28일, 한국 시간 기준.
+마지막 정리: 2026년 10월 29일, 한국 시간 기준. 카카오 로그인·이메일 알림·상시 홍보·앱 신규 가입 유입 측정과 최신 Figma 플로우차트를 반영했습니다.
