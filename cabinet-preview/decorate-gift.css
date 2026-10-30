@@ -1,0 +1,42 @@
+.decorate-layout{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:32px;text-align:left;align-items:start}.gift-preview{position:sticky;top:24px;background:var(--brand-paper);border:2px solid var(--brand-line);border-radius:28px;text-align:center;padding:28px 12px}.gift-preview svg{display:block;width:100%;max-height:400px}.preview-caption{display:block;font-size:13px;color:var(--brand-muted);margin-top:16px}.shape-step .decorate-options fieldset{margin:0 0 26px}.decorate-options legend{font-size:18px;font-weight:800;margin-bottom:12px}.option-grid{display:flex;flex-wrap:wrap;gap:8px}.option-grid button{border:1px solid var(--brand-line);border-radius:12px;background:#fff;padding:10px 12px;font-size:12px;min-height:44px;display:flex;align-items:center;gap:6px}.option-grid button[aria-pressed=true]{background:var(--brand-blush);border:2px solid var(--brand-primary);padding:9px 11px;font-weight:800}.option-color{width:15px;height:15px;border-radius:50%;border:1px solid #39261f55;background:var(--option-color)}.reset-decoration{background:none;border:0;text-decoration:underline;color:var(--brand-muted);padding:8px 0;font-size:12px}#saveError{font-size:12px;color:#a02d28}@media(max-width:650px){.decorate-layout{grid-template-columns:1fr;gap:24px;margin-top:24px}.gift-preview{top:0;position:relative;padding:14px}.gift-preview svg{height:240px}.preview-caption{margin:6px 0}.shape-step .decorate-options fieldset{margin-bottom:20px}.maker{padding-bottom:32px}}
+/* Illustrated ingredients share their artwork with the gift preview. */
+#toppingOptions{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;padding:14px;background:var(--brand-paper);border:1px solid var(--brand-line);border-radius:20px}
+#toppingOptions .topping-tile{position:relative;display:block;width:100%;aspect-ratio:1;padding:3px;border:2px solid #e5d8cf;border-radius:14px;background:#fff;box-shadow:0 3px 0 #e8dcd3;transition:transform .15s,background .15s,box-shadow .15s}
+.topping-tile svg{display:block;width:100%;height:auto;overflow:visible}
+#toppingOptions .topping-tile[aria-pressed=true]{padding:3px;border-color:var(--brand-primary);background:#fce4eb;box-shadow:0 3px 0 var(--brand-primary)}
+#toppingOptions .topping-tile:hover{transform:translateY(-2px);background:#fff3e3}
+.tile-check{display:none;position:absolute;right:3px;top:3px;width:16px;height:16px;border-radius:50%;background:var(--brand-primary);color:white;font-size:10px;line-height:16px;text-align:center}
+[aria-pressed=true] .tile-check{display:block}
+@media(max-width:650px){#toppingOptions{gap:8px;padding:10px}.gift-preview{padding:12px}.gift-preview svg{height:230px}}
+@media(prefers-reduced-motion:reduce){#toppingOptions .topping-tile{transition:none}}
+/* A small illustrated worktop, with a rimmed tray and loose parchment. */
+.gift-preview{isolation:isolate;overflow:hidden;padding:32px 24px;background:#ebc695 url('assets/worktop-grain.svg') center/480px 360px;border:1px solid #c59867;border-radius:22px;box-shadow:0 5px 0 #bb8a59,inset 0 2px 0 #fff0d0}
+.baking-tray{position:relative;padding:24px 18px;border:3px solid #7d8586;border-radius:28px;background:#bcc6c6;box-shadow:inset 0 0 0 4px #e1e7e5,inset 0 0 0 7px #9daaaa,3px 7px 0 #8c603b38;isolation:isolate}
+.baking-tray::before,.baking-tray::after{content:'';position:absolute;left:50%;transform:translateX(-50%);width:42px;height:5px;border-radius:5px;background:#7b8888;box-shadow:0 1px 0 #eef1ed;z-index:2}
+.baking-tray::before{top:9px}.baking-tray::after{bottom:9px}
+.baking-paper{position:absolute;inset:22px 15px;background:#fff4dc;transform:rotate(-3deg);clip-path:polygon(1% 0,32% 1%,65% 0,98% 2%,100% 36%,98% 67%,100% 99%,66% 98%,30% 100%,0 97%,1% 66%,0 33%);box-shadow:inset 0 0 0 1px #e9d6b4;z-index:-1}
+.baking-paper::before{content:'';position:absolute;inset:0;background:linear-gradient(111deg,transparent 0 7%,#dcc6a350 7.2%,transparent 7.7% 87%,#dcc6a340 87.3%,transparent 88%),linear-gradient(9deg,transparent 0 14%,#dcc6a330 14.4%,transparent 15% 91%,#fffdf3 91.3%);opacity:.8}
+#giftArt{position:relative;filter:drop-shadow(2px 4px 0 #82513720)}
+.gift-preview #giftArt svg{height:auto;min-height:250px;max-height:390px}
+@media(max-width:650px){.gift-preview{padding:24px 20px}.baking-tray{padding:22px 12px}.gift-preview #giftArt svg{height:240px;min-height:0}.baking-paper{inset:20px 13px}}
+
+.decoration-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;padding:5px;background:#eee4dc;border-radius:16px 16px 0 0;border:1px solid var(--brand-line);border-bottom:0}
+.decoration-tabs button{border:0;background:transparent;min-height:48px;border-radius:11px;font-size:16px;font-weight:700;color:var(--brand-muted)}
+.decoration-tabs button[aria-selected=true]{background:var(--brand-primary);color:#fffaf4;box-shadow:0 2px 0 #39261f22}
+.decoration-panels{padding:16px;background:var(--brand-paper);border:1px solid var(--brand-line);border-top:0;border-radius:0 0 20px 20px;min-height:290px}
+.decoration-panels [hidden]{display:none!important}
+#toppingOptions{padding:0;border:0;background:transparent}
+#coatingOptions,#drizzleOptions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#coatingOptions button,#drizzleOptions button{min-height:72px;justify-content:center;font-size:13px}
+.option-color{width:22px;height:22px;flex-shrink:0}
+.reset-decoration{margin-top:10px}
+.topping-tile{cursor:pointer;touch-action:manipulation}
+@media(max-width:650px){.decorate-layout{gap:20px}.gift-preview{position:relative;top:auto;padding:14px}.baking-tray{padding:16px 12px}.gift-preview #giftArt svg{height:190px}.baking-paper{inset:16px 13px}.decoration-tabs button{min-height:46px;font-size:15px}.decoration-panels{padding:12px;min-height:252px}#toppingOptions{gap:8px}.progress{margin-bottom:24px}.shape-step h1{font-size:26px}.maker{padding-top:20px}.step-actions{margin-top:16px;padding-top:16px}}
+@media(max-width:360px){#toppingOptions{gap:6px}.decoration-panels{padding:10px}.option-grid button{font-size:12px}}
+#coatingOptions button,#drizzleOptions button{flex-direction:column;gap:6px;min-height:124px;padding:10px 6px;font-size:12px}
+#coatingOptions button[aria-pressed=true],#drizzleOptions button[aria-pressed=true]{padding:9px 5px}
+.ingredient-icon{display:block;width:72px;height:72px;flex-shrink:0}
+#coatingOptions{grid-template-columns:repeat(3,minmax(0,1fr))}
+#drizzleOptions{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:650px){.ingredient-icon{width:60px;height:60px}#coatingOptions button,#drizzleOptions button{min-height:112px;font-size:11px}#coatingOptions,#drizzleOptions{gap:8px}}
+a.next-action{text-decoration:none;display:inline-flex;align-items:center;justify-content:center}

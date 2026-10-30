@@ -1,0 +1,54 @@
+/* Main visual first, school participation second, supporting copy last. */
+.cabinet-theme main{display:grid;grid-template-columns:minmax(0,1fr) 320px;grid-template-areas:"intro intro" "stage sidebar";gap:30px 32px;max-width:1240px;padding:32px 5% 40px;min-height:0;align-items:start}
+.cabinet-theme .intro{grid-area:intro;padding:0;display:block;min-width:0}
+.cabinet-theme .intro>.owner:first-child{margin:0 0 10px;font-size:12px}
+.cabinet-theme .intro h1{font-size:clamp(28px,3.4vw,42px);line-height:1.3;letter-spacing:-1.6px;margin:0 0 12px;white-space:nowrap}
+.cabinet-theme .intro h1 .title-break{display:none}
+.cabinet-theme .intro h1 em{display:inline-block;margin-left:.22em}
+.cabinet-theme .intro>p{margin:0;font-size:13px;line-height:1.7}
+.cabinet-theme .intro>p br{display:none}
+.cabinet-theme .intro .small-note{margin:8px 0 0;text-align:left;font-size:11px}
+.cabinet-theme main>.stage{grid-area:stage;grid-column:auto;width:100%;height:650px;min-height:650px;border-radius:28px;padding-top:20px}
+.cabinet-theme main>.stage .cabinet{margin-top:66px;transform:translateX(var(--cabinet-center-offset,0px)) scale(1.12)}
+.cabinet-sidebar{grid-area:sidebar;min-width:0;padding-top:12px}
+.cabinet-sidebar .school-card{margin:0;max-width:none;padding:22px;box-shadow:3px 3px 0 #f8b7ce}
+.cabinet-sidebar .school-card h2{font-size:23px}
+.cabinet-sidebar .letter-note{margin:32px 0 0;padding:22px 18px 16px;transform:none;border-width:1px;box-shadow:none}
+.cabinet-sidebar .letter-note h3{font-size:13px;margin:7px 0}
+.cabinet-sidebar .letter-note p{font-size:11px;margin:0}
+@media(min-width:751px) and (max-width:1000px){.cabinet-theme main{grid-template-columns:minmax(0,1fr) 280px;gap:26px 24px}.cabinet-sidebar .school-card{padding:18px}.cabinet-theme main>.stage{height:610px;min-height:610px}.cabinet-theme main>.stage .cabinet{transform:translateX(var(--cabinet-center-offset,0px)) scale(1.02)}}
+@media(max-width:750px){
+ .cabinet-theme main{grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "stage" "sidebar";padding:24px 20px 32px;gap:24px}
+ .cabinet-theme .intro h1{font-size:34px;white-space:normal;line-height:1.35}
+ .cabinet-theme .intro h1 .title-break{display:block}
+ .cabinet-theme .intro h1 em{margin-left:0}
+ .cabinet-theme .intro>p{font-size:12px}.cabinet-theme .intro>p br{display:block}
+ .cabinet-theme main>.stage{height:580px;min-height:580px;padding-top:10px;border-radius:24px}
+ .cabinet-theme main>.stage .cabinet{margin-top:64px;transform:translateX(var(--cabinet-center-offset,0px))}
+ .cabinet-sidebar{padding:0}.cabinet-sidebar .school-card{padding:22px}.cabinet-sidebar .letter-note{margin-top:28px}
+}
+
+/* Place the school label over the border to keep the card compact. */
+.cabinet-sidebar .school-card{position:relative}
+.cabinet-sidebar .school-card-top{position:absolute;top:0;left:22px;transform:translateY(-50%)}
+.cabinet-sidebar .school-title-row{margin-top:4px}
+@media(min-width:751px) and (max-width:1000px){.cabinet-sidebar .school-card-top{left:18px}}
+
+/* Keep the school invite secondary to the cabinet's main sharing action. */
+.cabinet-sidebar .school-card #school-event-note{margin:5px 0 6px;font-size:11px;line-height:1.6}
+.cabinet-sidebar .school-title-row{margin:0 0 2px}
+.cabinet-sidebar .school-card #school-card-copy{margin-bottom:6px}
+.cabinet-sidebar .school-count-line{margin:10px 0 8px}
+.cabinet-sidebar .school-count-line strong{font-size:13px;font-weight:600}
+.cabinet-sidebar .school-count-line>span{font-size:11px}
+.cabinet-sidebar .school-progress-track{margin-bottom:0}
+.cabinet-sidebar #school-share{margin-top:16px;min-height:44px;border:1px solid #edcdd5;background:#f7e3e9;color:#704332;border-radius:12px;font-size:12px;font-weight:600;box-shadow:none}
+.cabinet-sidebar #school-share:hover{background:#f1d5df;border-color:#dfb9c5}
+.cabinet-sidebar #school-share:disabled{opacity:.55;cursor:wait}
+/* The initial HTML must remain closed even before scripts initialize. */
+#cabinet.closed>.inside{visibility:hidden}
+#cabinet>.door:not(:has(.door-ink)){background:var(--cab);border:2px solid var(--brand-ink);box-shadow:inset 0 0 0 8px var(--cab),inset 0 0 0 10px var(--brand-ink)}
+
+/* Keep the possessive suffix with the nickname inside one flex item. */
+.cabinet-theme .owner-label{display:inline}
+.cabinet-theme .intro h1 em:before{background:#fbd6e3}

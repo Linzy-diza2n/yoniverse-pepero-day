@@ -1,0 +1,13 @@
+.wrap-preview{position:sticky;top:24px;background:#fff3f5;border:1px solid var(--brand-line);border-radius:24px;padding:18px;background-image:radial-gradient(#d6adbb55 1px,transparent 1px);background-size:16px 16px}.wrap-preview svg{display:block;width:100%;height:420px}.wrap-preview svg svg,.wrap-thumb svg svg{height:auto}.decoration-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.wrap-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.ribbon-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.wrap-options button,.ribbon-options button{min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:10px 6px;border:2px solid var(--brand-line);border-radius:14px;background:#fff;color:var(--brand-ink);font-size:12px;min-height:104px}.wrap-options button[aria-pressed=true],.ribbon-options button[aria-pressed=true]{border-color:var(--brand-primary);background:var(--brand-blush);box-shadow:0 3px 0 var(--brand-primary)}.wrap-thumb{width:100%}.wrap-thumb>svg{display:block;width:100%;height:auto}.ribbon-options svg{width:70px;height:60px}.next-action{text-decoration:none;display:inline-flex;align-items:center;justify-content:center}@media(max-width:650px){.wrap-preview{position:relative;top:auto;padding:10px}.wrap-preview>div>svg{height:270px}.wrap-options,.ribbon-options{gap:8px}.decoration-panels{min-height:238px}}
+.wrap-preview{background:#fff8f2;background-image:none;border-color:#e8d7c9;padding:16px;border-radius:28px;box-shadow:inset 0 0 0 7px #fffcf8}
+.ribbon-options svg{width:86px;height:76px}.ribbon-options button{min-height:124px}
+.wrap-options button,.ribbon-options button{border-width:1.5px;border-radius:18px;background:#fffdfa}
+.wrap-options button[aria-pressed=true],.ribbon-options button[aria-pressed=true]{box-shadow:0 3px 0 #704332;background:#fff0f4}
+@media(max-width:650px){.wrap-preview>div>svg{height:290px}.ribbon-options svg{width:72px;height:66px}.ribbon-options button{min-height:112px}}
+
+/* A packing desk shared with the decorating worktop. */
+.wrap-preview{isolation:isolate;overflow:hidden;aspect-ratio:520/480;padding:0;background:#ebc695 url('assets/worktop-grain.svg') center/480px 360px;border:1px solid #c59867;border-radius:22px;box-shadow:0 5px 0 #bb8a59,inset 0 2px 0 #fff0d0}
+.wrapping-tools{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none;user-select:none;filter:drop-shadow(1px 3px 1px #79502c18)}
+#wrappedArt{position:absolute;inset:6% 16% 8%;filter:drop-shadow(2px 5px 2px #79502c25)}
+.wrap-preview #wrappedArt>svg{height:100%;width:100%;overflow:visible}
+@media(max-width:650px){.wrap-preview{padding:0;aspect-ratio:520/480}.wrap-preview #wrappedArt>svg{height:100%}}

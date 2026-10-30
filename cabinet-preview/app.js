@@ -1,10 +1,12 @@
 const $ = (id) => document.getElementById(id);
 const colors = [
-  ['팝 민트','#73d8b3','#3fa98b','#b9f3d9'],
-  ['레몬 버터','#ffe36e','#c6a342','#fff2b6'],
-  ['체리 밀크','#ff9bc4','#d06398','#ffd4e6'],
-  ['팝 라일락','#bca0f1','#8868bc','#e3d3ff'],
-  ['소다 블루','#81cdf1','#4c99bf','#c1edff']
+  ['파스텔 민트','#B5E4D3','#82B6A3','#DEF3EA'],
+  ['레몬 버터','#FFEDAB','#D1B970','#FFF7D6'],
+  ['체리 밀크','#F6BDD3','#CA91A9','#FBE1EB'],
+  ['파스텔 라일락','#D3C4EE','#A798C4','#EDE6FA'],
+  ['소다 블루','#B8DFF0','#87B4C9','#DFF1F9'],
+  ['살구 소르베','#F8CDB5','#C99D85','#FCE8DC'],
+  ['바닐라 크림','#F2E6D1','#C4B59B','#FAF4E8']
 ];
 
 const doodles = {
@@ -20,28 +22,52 @@ const doodles = {
  '✧': '<path fill="#ffe26a" d="M45 9 L54 34 83 23 66 48 88 65 59 63 53 91 40 66 13 76 29 51 10 36 36 36Z"/><path d="M76 6 L79 13 M91 76 L96 81 M6 58 L12 56" fill="none"/>',
  '☺': '<path fill="#f5c15e" d="M48 10 C75 5 88 29 85 56 C83 78 59 91 36 83 C10 75 9 52 15 32 C21 16 33 12 48 10Z"/><path d="M32 33 Q27 39 34 44 M57 29 Q53 35 59 41 M29 54 C41 77 66 68 72 48" fill="none"/>'
 };
-function stickerSvg(key) { return '<svg viewBox="0 0 100 100" aria-hidden="true" focusable="false" fill="none" stroke="#151515" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">'+doodles[key]+'</svg>'; }
+Object.assign(doodles, {
+ 'music':'<path d="M40 65V24L77 15V57" stroke-width="5"/><path d="M40 28L77 19V33L40 42Z" fill="#bca0f1"/><ellipse cx="28" cy="69" rx="13" ry="10" fill="#bca0f1"/><ellipse cx="65" cy="61" rx="13" ry="10" fill="#bca0f1"/>',
+ 'sun':'<circle cx="50" cy="50" r="23" fill="#ffe36e"/><path d="M50 7V17 M50 83V93 M7 50H17 M83 50H93 M19 19L26 26 M74 74L81 81 M19 81L26 74 M74 26L81 19 M40 44V48 M60 44V48 M40 58Q50 68 60 58"/>',
+ 'clover':'<path d="M51 49C14 29 22 7 40 16Q51 18 51 34C57 4 85 11 80 29Q77 42 60 49C91 51 90 79 72 78Q59 78 52 61C46 90 20 88 20 70Q20 55 43 50Z" fill="#73d8b3"/><path d="M51 54Q60 75 48 94"/>',
+ 'cat':'<path d="M20 43L18 14 40 29Q51 25 63 29L83 14 81 45Q94 82 51 85Q8 83 20 43Z" fill="#ffd6a0"/><path d="M35 49V54 M65 49V54 M46 59L51 63 56 59 M51 63Q43 72 39 65 M51 63Q58 72 63 65 M9 58L26 61 M9 70L26 67 M75 61L92 58 M75 67L92 70"/>',
+ 'spark':'<path d="M49 8Q53 43 87 49Q55 53 49 89Q44 55 10 49Q44 44 49 8Z" fill="#81cdf1"/><path d="M80 8V26 M71 17H89 M20 77V91 M13 84H27"/>'
+});
+const NAME_LIMIT = 6;
+const nameCharacters = value => Array.from(new Intl.Segmenter('ko',{granularity:'grapheme'}).segment(value), part=>part.segment);
+function stickerSvg(key) { if(!doodles[key]) return ''; return '<svg viewBox="0 0 100 100" aria-hidden="true" focusable="false" fill="none" stroke="#151515" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">'+doodles[key]+'</svg>'; }
 function sketchSvg(cls, body) { return '<svg class="'+cls+'" viewBox="0 0 240 420" preserveAspectRatio="none" aria-hidden="true" fill="none" stroke="#151515" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">'+body+'</svg>'; }
 $('cabinet').insertAdjacentHTML('afterbegin',sketchSvg('cabinet-ink','<path fill="var(--cab-dark)" d="M15 7 L227 7 Q232 7 236 15 L236 408 Q236 415 229 415 L15 410Z"/><path fill="var(--cab)" d="M14 5 Q7 5 7 13 L7 399 Q7 406 14 406 L222 406 Q229 406 229 399 L229 13 Q229 5 222 5Z"/>'));
-$('door').insertAdjacentHTML('afterbegin',sketchSvg('door-ink','<path fill="var(--cab)" d="M15 6 Q8 6 8 14 L8 400 Q8 408 16 408 L223 408 Q230 408 230 400 L230 14 Q230 6 222 6Z"/><path d="M25 21 Q20 21 20 27 L20 387 Q20 393 26 393 L211 393 Q217 393 217 387 L217 27 Q217 21 211 21Z"/><path d="M60 34 Q119 33 178 34 M60 44 Q119 43 178 44 M60 370 Q119 369 178 370 M60 380 Q119 379 178 380"/>'));
+$('door').insertAdjacentHTML('afterbegin',sketchSvg('door-ink','<path fill="var(--cab)" d="M15 6 Q8 6 8 14 L8 400 Q8 408 16 408 L223 408 Q230 408 230 400 L230 14 Q230 6 222 6Z"/><path d="M25 21 Q20 21 20 27 L20 387 Q20 393 26 393 L211 393 Q217 393 217 387 L217 27 Q217 21 211 21Z"/><path d="M60 370 Q119 369 178 370 M60 380 Q119 379 178 380"/>'));
 document.querySelector('.mini-sticker').innerHTML=stickerSvg('☺');
 
 
 
 let saved = {}; try { saved = JSON.parse(localStorage.getItem('cabinet-concept-v1')) || {}; } catch {}
-const state = {name: typeof saved.name === 'string' && saved.name.trim() ? saved.name.trim().slice(0,12) : '요니', color: Number.isInteger(saved.color) && colors[saved.color] ? saved.color : 0, sticker: ['♡','✿','✧','☺','cherry','planet','bow','bolt','cloud','pepero'].includes(saved.sticker) ? saved.sticker : '♡'};
+const state = {name: typeof saved.name === 'string' && saved.name.trim() ? nameCharacters(saved.name.trim()).slice(0,NAME_LIMIT).join('') : '요니', color: Number.isInteger(saved.color) && colors[saved.color] ? saved.color : 0, sticker: ['♡','✿','✧','☺','cherry','planet','bow','bolt','cloud','pepero','music','sun','clover','cat','spark'].includes(saved.sticker) ? saved.sticker : '✧'};
+const legacyStickers = [['sticker',.60,62],['stickerBottom',.75,46]].flatMap(([slot,y,size],index)=>{
+ const key=saved[slot]===null?null:(Object.hasOwn(doodles,saved[slot])?saved[slot]:(index?'☺':'✧'));
+ return key?[{id:'legacy-'+index,key,x:saved.positions?.[slot]?.x??.5,y:saved.positions?.[slot]?.y??y,size}]:[];
+});
+state.decorations=(Array.isArray(saved.decorations)?saved.decorations:legacyStickers)
+ .filter(item=>item && Object.hasOwn(doodles,item.key))
+ .map((item,index)=>({id:'sticker-'+index,key:item.key,x:Number.isFinite(item.x)?Math.max(.14,Math.min(.85,item.x)):.5,y:Number.isFinite(item.y)?Math.max(.30,Math.min(.86,item.y)):.6,size:item.size===46?46:62}));
+let activeStickerSlot = null;
 let timer;
 function toast(message) { $('toast').textContent=message; $('toast').classList.add('show'); clearTimeout(timer);timer=setTimeout(()=>$('toast').classList.remove('show'),2200); }
-function save() { try {localStorage.setItem('cabinet-concept-v1',JSON.stringify(state));} catch {toast('저장 공간을 사용할 수 없어 이번 화면에만 적용했어.');} }
+function save() { try {localStorage.setItem('cabinet-concept-v1',JSON.stringify(state));} catch {toast('저장 공간을 사용할 수 없어 이번 화면에만 적용했어요.');} }
 function render() {
- $('ownerName').textContent=state.name; $('plateName').textContent=state.name; $('doorSticker').innerHTML=stickerSvg(state.sticker);
+ syncEditorPreview();
+ $('ownerName').textContent=state.name; $('plateName').textContent=state.name; 
+ syncDecorations($('door'),false);
  const c=colors[state.color]; ['--cab','--cab-dark','--cab-light'].forEach((key,i)=>document.documentElement.style.setProperty(key,c[i+1]));
  document.querySelectorAll('.swatch').forEach((b,i)=>{b.classList.toggle('selected',i===state.color);b.setAttribute('aria-pressed',i===state.color);});
- document.querySelectorAll('.sticker').forEach(b=>{b.classList.toggle('selected',b.dataset.sticker===state.sticker);b.setAttribute('aria-pressed',b.dataset.sticker===state.sticker);});
+ document.querySelectorAll('.sticker').forEach(b=>{b.classList.toggle('selected',b.dataset.sticker===state.decorations.find(item=>item.id===activeStickerSlot)?.key);b.setAttribute('aria-pressed',b.dataset.sticker===state.decorations.find(item=>item.id===activeStickerSlot)?.key);});
 }
-colors.forEach((c,i)=>{const b=document.createElement('button');b.className='swatch';b.style.background=c[1];b.setAttribute('aria-label',c[0]);b.onclick=()=>{state.color=i;render();save();};$('swatches').append(b);});
-['♡','✿','✧','☺','cherry','planet','bow','bolt','cloud','pepero'].forEach((s,i)=>{const b=document.createElement('button');b.className='sticker';b.dataset.sticker=s;b.innerHTML=stickerSvg(s);b.setAttribute('aria-label',['하트','꽃','별','스마일','체리','행성','리본','번개','구름','빼빼로'][i]+' 스티커');b.onclick=()=>{state.sticker=s;render();save();};$('stickers').append(b);});
+colors.forEach((c,i)=>{const b=document.createElement('button');b.type='button';b.className='swatch';b.style.background=c[1];b.setAttribute('aria-label',c[0]);b.onclick=()=>{state.color=i;render();};$('swatches').append(b);});
+['♡','✿','✧','☺','cherry','planet','bow','bolt','cloud','pepero','music','sun','clover','cat','spark'].forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.className='sticker';b.dataset.sticker=s;b.innerHTML=stickerSvg(s);b.setAttribute('aria-label',['하트','꽃','별','스마일','체리','행성','리본','번개','구름','초콜릿','음표','해님','클로버','고양이','반짝임'][i]+' 스티커');b.onclick=()=>{
+ const index=state.decorations.length;
+ const item={id:crypto.randomUUID(),key:s,x:.27+(index%3)*.22,y:.59+(Math.floor(index/3)%3)*.10,size:62};
+ state.decorations.push(item);activeStickerSlot=item.id;render();
+};$('stickers').append(b);});
 function cabinetPhase(now = new Date()) {
+ if (new URLSearchParams(location.search).get('previewState') === 'unpaid') return 'payment';
  const opening = Date.parse('2026-11-11T00:00:00+09:00');
  const deadline = Date.parse('2026-11-12T00:00:00+09:00');
  return now.getTime() < opening ? 'waiting' : now.getTime() < deadline ? 'payment' : 'ended';
@@ -50,18 +76,18 @@ function showCabinetAccess() {
  if (cabinetPaymentCompleted) { openPaidCabinet(); return; }
  const phase = cabinetPhase();
  if (phase === 'waiting') {
-  info('11/11 빼빼로데이에 열 수 있어요!', '보내온 마음은 그날까지 소중히 보관할게요. 11월 11일 00:00부터 990원으로 이번 행사에서 받은 선물을 모두 열어볼 수 있어요.');
+  info('11월 11일에 열 수 있어요!', '보내온 마음은 그날까지 소중히 보관할게요. 11월 11일 00:00부터 990원으로 이번 행사에서 받은 선물을 모두 열어볼 수 있어요.');
  } else if (phase === 'payment') {
-  info('나에게 누가 빼빼로를 보냈는지 확인할까요?', '990원을 한 번 결제하면 보낸 사람과 편지, 꾸민 빼빼로를 모두 볼 수 있어요. 결제 후 추가로 받은 선물도 포함돼요.');
+  info('나에게 누가 초콜릿을 보냈는지 확인할까요?', '990원을 한 번 결제하면 보낸 사람과 편지, 꾸민 초콜릿을 모두 볼 수 있어요. 결제 후 추가로 받은 선물도 포함돼요.');
   $('okay').textContent='990원으로 모두 열기';
   $('okay').onclick=showPaymentReview;
  } else {
-  info('이번 빼빼로데이 결제가 마감됐어요', '결제 가능 시간은 11월 11일 밤 11:59까지예요. 이미 결제한 선물의 열람은 계정·결제 내역 연동 후 제공돼요.');
+  info('이번 이벤트 결제가 마감됐어요', '결제 가능 시간은 11월 11일 밤 11:59까지예요. 이미 결제한 선물의 열람은 계정·결제 내역 연동 후 제공돼요.');
  }
 }
 function showPaymentReview() {
  $('infoTitle').textContent='선물 열람 결제';
- $('infoBody').textContent='이번 행사에서 받은 모든 빼빼로 · 990원, 1회 결제. 이후 추가로 받은 선물도 재결제 없이 확인할 수 있어요.';
+ $('infoBody').textContent='이번 행사에서 받은 모든 초콜릿 · 990원, 1회 결제. 이후 추가로 받은 선물도 재결제 없이 확인할 수 있어요.';
  $('paymentNotice').hidden=false;
  $('okay').textContent='확인했어요';
  $('okay').onclick=()=>$('info').close();
@@ -70,12 +96,41 @@ $('cabinet').classList.add('closed');
 $('handle').setAttribute('aria-label','캐비넷 열람 안내');
 $('gift').tabIndex=-1;
 $('handle').onclick=showCabinetAccess;
-function edit(){ $('name').value=state.name; $('editor').showModal(); }
-$('customize').onclick=edit; $('nameplate').onclick=edit; $('profile').onclick=edit;
-$('editForm').onsubmit=e=>{if(e.submitter.value!=='save')return; const name=$('name').value.trim();if(!name){e.preventDefault();$('name').setCustomValidity('이름을 입력해줘.');$('name').reportValidity();return;}state.name=name;render();save();toast('이름표를 새로 붙였어 ♡');};$('name').oninput=()=>$('name').setCustomValidity('');
+let editorSnapshot;
+function edit(){ activeStickerSlot=null; editorSnapshot=JSON.parse(JSON.stringify(state)); $('name').value=state.name; $('editor').returnValue=''; setNameError(''); buildEditorPreview(); render(); $('editor').showModal(); selectEditorTab('stickers'); resizeEditorCabinet(); }
+$('editor').addEventListener('close',()=>{if($('editor').returnValue!=='save' && editorSnapshot){Object.assign(state,editorSnapshot);render();} editorSnapshot=null;});
+$('customize').onclick=edit; $('nameplate').onclick=edit;
+function setNameError(message) {
+ $('nameError').textContent=message;
+ $('nameError').hidden=!message;
+ if(message) { $('name').setAttribute('aria-invalid','true'); $('name').setAttribute('aria-describedby','nameError'); }
+ else { $('name').removeAttribute('aria-invalid'); $('name').removeAttribute('aria-describedby'); }
+}
+function validateName() {
+ const name=$('name').value.trim();
+ const error=!name ? '캐비넷 이름을 입력해 주세요.' : nameCharacters(name).length>NAME_LIMIT ? '이름은 6자까지 입력할 수 있어요.' : '';
+ setNameError(error);
+ return !error;
+}
+$('editForm').onsubmit=e=>{
+ if(e.submitter?.value!=='save') return;
+ if(!validateName()){e.preventDefault();selectEditorTab('name');$('name').focus();return;}
+ state.name=$('name').value.trim();render();save();toast('캐비넷 꾸미기를 저장했어요');
+};
+$('name').oninput=()=>{validateName();syncEditorPreview();};
+$('name').onblur=validateName;
+
 function info(title,body){$('infoTitle').textContent=title;$('infoBody').textContent=body;$('paymentNotice').hidden=true;$('okay').textContent='알겠어요';$('okay').onclick=()=>$('info').close();if(!$('info').open)$('info').showModal();}
-$('gift').onclick=()=>info('너에게 보내는 편지 ♡','달콤한 하루가 되길 바라! 좋아하는 마음을 담아서 보냈어. — 미리보기용 샘플 편지');
-$('invite').onclick=()=>info('내 취향을 담은 초대장','지금은 내 캐비넷을 꾸며보는 시안이야. 실제 친구 초대 링크는 로그인과 개인 공간 생성 기능이 연결되면 사용할 수 있어.');
+$('gift').onclick=()=>info('마음을 담은 편지','달콤한 하루가 되길 바라요! 응원하는 마음을 담아서 보냈어요. — 미리보기용 샘플 편지');
+$('invite').onclick=async()=>{
+ const link=new URL("visitor.html",location.href);
+ let school=null; try {school=JSON.parse(localStorage.getItem("yoniverse-school-preview-v1"));} catch {}
+ link.searchParams.set("cabinet",JSON.stringify({name:state.name,color:state.color,decorations:state.decorations,school}));
+ for(const key of [...link.searchParams.keys()]) if(key.startsWith('preview')) link.searchParams.delete(key);
+ link.hash='';
+ try { await navigator.clipboard.writeText(link.href); toast('내 캐비넷 링크를 복사했어요'); }
+ catch { info('링크를 직접 복사해 주세요',link.href); }
+};
 $('closeInfo').onclick=()=>$('info').close();$('okay').onclick=()=>$('info').close();
 render();
 
@@ -112,7 +167,7 @@ rowObserver.observe($('cabinet'));
 alignCabinetRow();
 if (document.fonts) document.fonts.ready.then(alignCabinetRow);
 
-$('door').insertAdjacentHTML('beforeend', '<button class="padlock" id="padlock" aria-label="자물쇠 열기"><svg viewBox="0 0 50 66" aria-hidden="true"><path d="M13 29 V17 C13 1 37 1 37 17 V30" fill="none" stroke="#282830" stroke-width="9" stroke-linecap="round"/><path d="M13 29 V17 C13 1 37 1 37 17 V30" fill="none" stroke="#e1e3e9" stroke-width="5" stroke-linecap="round"/><rect x="5" y="26" width="40" height="33" rx="6" fill="#ffe18a" stroke="#25242c" stroke-width="2.5"/><path d="M10 31 H40" stroke="#fff4c7" stroke-width="3" stroke-linecap="round"/><circle cx="25" cy="41" r="4" fill="#49424c"/><path d="M25 43 V49" stroke="#49424c" stroke-width="4" stroke-linecap="round"/></svg></button>');
+$('door').insertAdjacentHTML('beforeend', '<button class="padlock" id="padlock" aria-label="자물쇠 열기"><svg viewBox="0 0 50 66" aria-hidden="true"><path class="lock-shackle" d="M13 29 V17 C13 1 37 1 37 17 V30" fill="none" stroke="#282830" stroke-width="9" stroke-linecap="round"/><path class="lock-shackle" d="M13 29 V17 C13 1 37 1 37 17 V30" fill="none" stroke="#e1e3e9" stroke-width="5" stroke-linecap="round"/><rect x="5" y="26" width="40" height="33" rx="6" fill="#ffe18a" stroke="#25242c" stroke-width="2.5"/><path d="M10 31 H40" stroke="#fff4c7" stroke-width="3" stroke-linecap="round"/><circle cx="25" cy="41" r="4" fill="#49424c"/><path d="M25 43 V49" stroke="#49424c" stroke-width="4" stroke-linecap="round"/></svg></button>');
 $('padlock').onclick=showCabinetAccess;
 // Clip the moving reflection to the lock body and metal shackle.
 const lockSvg = $('padlock').querySelector('svg');
@@ -121,7 +176,7 @@ lockSvg.insertAdjacentHTML('beforeend', '<g clip-path="url(#lock-shimmer-clip)" 
 
 
 // Gifts enter through this slot while the cabinet door stays locked.
-$('door').insertAdjacentHTML('beforeend','<div class="gift-slot" role="img" aria-label="포장한 빼빼로를 넣는 선물 투입구"><span class="slot-lip"></span><span class="slot-opening"></span><span class="slot-caption">마음 넣는 곳 ↓</span></div>');
+$('door').insertAdjacentHTML('beforeend','<div class="gift-slot" role="img" aria-label="포장한 초콜릿을 넣는 선물 투입구"><span class="slot-lip"></span><span class="slot-opening"></span><span class="slot-caption">마음 넣는 곳 ↓</span></div>');
 
 // Prototype access state. The payment integration must supply the verified
 // entitlement; closing the payment explanation does not count as payment.
@@ -212,6 +267,7 @@ paymentPreviewButton.onclick = () => {
  if (cabinetPaymentCompleted) {
   if ($('cabinet').classList.contains('closed')) openPaidCabinet();
   else {
+   $('letterReader')?.close();
    $('cabinet').classList.add('closed');
    $('gift').tabIndex = -1;
    paymentPreviewButton.textContent = '캐비넷 문 열기';
@@ -224,7 +280,7 @@ paymentPreviewButton.onclick = () => {
 };
 // Restore only this prototype's visual demo, never production payment access.
 try {
- if (localStorage.getItem('cabinet-payment-visual-demo-v1') === 'completed') {
+ if (new URLSearchParams(location.search).get('previewState') !== 'unpaid' && localStorage.getItem('cabinet-payment-visual-demo-v1') === 'completed') {
   cabinetPaymentCompleted = true;
   $('padlock').classList.add('unlocked');
   $('padlock').setAttribute('aria-label','열린 자물쇠 · 캐비넷 열기');
@@ -237,7 +293,7 @@ try {
 // This notice is shown only while the paid cabinet is open.
 const cabinetPrivacyNotice = document.createElement('p');
 cabinetPrivacyNotice.className = 'cabinet-privacy-notice';
-cabinetPrivacyNotice.textContent = '열린 나의 캐비넷은 다른사람이 볼 수 없어요.';
+cabinetPrivacyNotice.textContent = '열린 나의 캐비넷은 다른 사람이 볼 수 없어요.';
 cabinetPrivacyNotice.setAttribute('role', 'status');
 $('cabinet').prepend(cabinetPrivacyNotice);
 
@@ -254,11 +310,11 @@ if (new URLSearchParams(location.search).get('previewInterior') === '1') {
 
 // Sample senders and letters for the interior prototype only.
 const sampleGiftLetters = {
- pink: {name:'소희', instagram:'@sohee_sample', message:'너 생각하면서 분홍색으로 포장했어 ♡ 바쁜 하루에도 달콤하게 웃는 순간이 많았으면 좋겠어. 빼빼로데이 잘 보내!'},
- yellow: {name:'민준', instagram:'@minjun_sample', message:'너에게 어떤 말을 전할까 고민하다가, 오늘은 고맙다는 말을 하고 싶었어. 별것 아닌 이야기에도 함께 웃어주고, 힘든 날에는 조용히 내 편이 되어줘서 고마워. 이 빼빼로에는 네가 좋아하는 달콤함과 내가 전하고 싶은 마음을 가득 담았어. 앞으로도 맛있는 것 먹고, 예쁜 곳 구경하고, 소소한 추억을 많이 만들자. 오늘 하루도 너답게 반짝이길 바라. 늘 응원할게!'},
- purple: {name:'하린', instagram:'@harin_sample', message:'네가 좋아하는 보라색으로 골랐어. 사소한 순간에도 네 편이 있다는 걸 기억해 줘. 우리 곧 만나자 ✧'}
+ pink: {name:'소희', instagram:'@sohee_sample', message:'좋아하는 분홍색으로 포장했어요! 바쁜 하루에도 달콤하게 웃는 순간이 많았으면 좋겠어요. 달콤한 하루 보내요!'},
+ yellow: {name:'민준', instagram:'@minjun_sample', message:'어떤 말을 전할까 고민하다가, 오늘은 고맙다는 말을 하고 싶었어요. 별것 아닌 이야기에도 함께 웃어주고, 힘든 날에는 조용히 내 편이 되어줘서 고마워요. 이 초콜릿에는 좋아하는 달콤함과 내가 전하고 싶은 마음을 가득 담았어요. 앞으로도 맛있는 것 먹고, 예쁜 곳 구경하고, 소소한 추억을 많이 만들어요. 오늘 하루도 자신답게 반짝이길 바라요. 늘 응원할게요!'},
+ purple: {name:'하린', instagram:'@harin_sample', message:'좋아하는 보라색으로 골랐어요. 사소한 순간에도 곁에서 응원하는 사람이 있다는 걸 기억해 줘요. 우리 곧 만나요 ✧'}
 };
-document.body.insertAdjacentHTML('beforeend', `<dialog id="letterReader" class="letter-reader" aria-labelledby="letterFrom"><button type="button" class="letter-close" aria-label="편지 접어두기">×</button><div class="letter-scene"><div class="envelope-back" aria-hidden="true"></div><div class="envelope-flap" aria-hidden="true"><svg viewBox="0 0 400 100" preserveAspectRatio="none"><path d="M0 100 L178 10 Q200 -2 222 10 L400 100Z" fill="var(--envelope-flap-tone)"/></svg></div><article class="letter-paper"><h2 id="letterTo"></h2><p id="letterMessage" class="letter-handwriting"></p><div class="letter-signature"><h3 id="letterFrom"></h3><span id="letterAccount"></span></div><small class="letter-sample">미리보기용 샘플 편지</small></article><div class="envelope-front" aria-hidden="true"><svg viewBox="0 0 400 180" preserveAspectRatio="none"><path d="M0 26 Q0 18 8 20 L182 40 Q200 43 218 40 L392 20 Q400 18 400 26 V158 Q400 180 378 180 H22 Q0 180 0 158Z" fill="var(--envelope-color)"/><path d="M1 20 L166 108 8 170 Q0 164 0 154Z M399 20 L234 108 392 170 Q400 164 400 154Z" fill="var(--envelope-fold-tone)"/><path d="M7 173 L184 99 Q200 91 216 99 L393 173 Q387 180 378 180 H22 Q13 180 7 173Z" fill="var(--envelope-color)"/></svg><span>sealed with love ♡</span></div></div><button type="button" class="letter-keep">편지 접어두기 ♡</button></dialog>`);
+document.body.insertAdjacentHTML('beforeend', `<dialog id="letterReader" class="letter-reader" aria-labelledby="letterFrom"><button type="button" class="letter-close" aria-label="편지 접어두기">×</button><div class="letter-scene"><div class="envelope-back" aria-hidden="true"></div><div class="envelope-flap" aria-hidden="true"><svg viewBox="0 0 400 100" preserveAspectRatio="none"><path d="M0 100 L178 10 Q200 -2 222 10 L400 100Z" fill="var(--envelope-flap-tone)"/></svg></div><article class="letter-paper"><h2 id="letterTo"></h2><p id="letterMessage" class="letter-handwriting"></p><div class="letter-signature"><h3 id="letterFrom"></h3><span id="letterAccount"></span></div><small class="letter-sample">미리보기용 샘플 편지</small></article><div class="envelope-front" aria-hidden="true"><svg viewBox="0 0 400 180" preserveAspectRatio="none"><path d="M0 26 Q0 18 8 20 L182 40 Q200 43 218 40 L392 20 Q400 18 400 26 V158 Q400 180 378 180 H22 Q0 180 0 158Z" fill="var(--envelope-color)"/><path d="M1 20 L166 108 8 170 Q0 164 0 154Z M399 20 L234 108 392 170 Q400 164 400 154Z" fill="var(--envelope-fold-tone)"/><path d="M7 173 L184 99 Q200 91 216 99 L393 173 Q387 180 378 180 H22 Q13 180 7 173Z" fill="var(--envelope-color)"/></svg><span>a little note for you</span></div></div><button type="button" class="letter-keep">편지 접어두기</button></dialog>`);
 let letterCloseAnimations = [];
 async function foldLetterAway() {
  const reader = $('letterReader');
@@ -373,3 +429,102 @@ letterFontPreview.querySelectorAll('button').forEach(button => {
  button.onclick = () => selectLetterFont(button.dataset.letterFont);
 });
 selectLetterFont('cute');
+
+// Closed cabinets must not expose shelf controls to keyboard navigation.
+function syncCabinetInterior() {
+ const closed = $('cabinet').classList.contains('closed');
+ document.querySelector('.gift-interior').inert = closed;
+}
+new MutationObserver(syncCabinetInterior).observe($('cabinet'), {attributes:true, attributeFilter:['class']});
+syncCabinetInterior();
+
+
+// Full-screen workspace: preview, one tool panel, and a pinned save action.
+const editorForm=$('editForm');
+const editorHeader=document.createElement('div');editorHeader.className='editor-header';
+editorHeader.append($('editorTitle'),editorForm.querySelector('.close'));
+const editorLayout=document.createElement('div');editorLayout.className='editor-layout';
+const editorPreview=document.createElement('div');editorPreview.id='editorPreview';editorPreview.className='editor-preview';
+editorPreview.setAttribute('role','group');editorPreview.setAttribute('aria-label','꾸미는 캐비넷 미리보기');
+const editorTools=document.createElement('div');editorTools.className='editor-tools';
+const editorTabs=document.createElement('div');editorTabs.className='editor-tabs';editorTabs.setAttribute('role','tablist');editorTabs.setAttribute('aria-label','꾸미기 도구');
+const namePanel=document.createElement('div');namePanel.id='tool-name';namePanel.className='editor-panel';
+namePanel.append(editorForm.querySelector('label'),$('name'),$('nameError'));
+const colorPanel=$('swatches').closest('fieldset');colorPanel.id='tool-color';colorPanel.classList.add('editor-panel');
+const stickerPanel=$('stickers').closest('fieldset');stickerPanel.id='tool-stickers';stickerPanel.classList.add('editor-panel');
+const hint=document.createElement('p');hint.className='sticker-hint';hint.textContent='누르면 새로 붙어요 · 붙인 스티커는 끌어서 옮겨요';stickerPanel.insertBefore(hint,$('stickers'));
+const deleteSticker=document.createElement('button');deleteSticker.type='button';deleteSticker.className='delete-sticker';deleteSticker.textContent='스티커 모두 삭제';
+deleteSticker.onclick=()=>{state.decorations=[];activeStickerSlot=null;render();};stickerPanel.append(deleteSticker);
+for(const [key,label] of [['name','이름'],['color','컬러'],['stickers','스티커']]){
+ const button=document.createElement('button');button.type='button';button.textContent=label;button.id='tab-'+key;button.dataset.tool=key;button.setAttribute('role','tab');button.setAttribute('aria-controls','tool-'+key);button.onclick=()=>selectEditorTab(key);editorTabs.append(button);
+ const panel={name:namePanel,color:colorPanel,stickers:stickerPanel}[key];panel.setAttribute('role','tabpanel');panel.setAttribute('aria-labelledby',button.id);
+}
+editorTools.append(editorTabs,namePanel,colorPanel,stickerPanel);
+const editorFooter=document.createElement('div');editorFooter.className='editor-footer';editorFooter.append(editorForm.querySelector('.primary'));
+editorLayout.append(editorPreview,editorTools);editorForm.replaceChildren(editorHeader,editorLayout,editorFooter);
+function selectEditorTab(key){
+ editorTabs.querySelectorAll('button').forEach(b=>{const selected=b.dataset.tool===key;b.setAttribute('aria-selected',String(selected));});
+ [namePanel,colorPanel,stickerPanel].forEach(panel=>panel.hidden=panel.id!=='tool-'+key);
+ editorPreview.classList.toggle('placing-stickers',key==='stickers');
+}
+function resizeEditorCabinet(){
+ const box=$('editorPreview');if(!box || !$('editor').open)return;
+ box.style.setProperty('--editor-scale',Math.min((box.clientHeight-30)/416,(box.clientWidth-50)/234,1.45));
+}
+new ResizeObserver(resizeEditorCabinet).observe(editorPreview);
+function syncDecorations(door,editable){
+ door.querySelectorAll('.door-sticker,.mini-sticker').forEach(el=>el.remove());
+ door.querySelectorAll('.placed-sticker').forEach(el=>{if(!state.decorations.some(item=>item.id===el.dataset.stickerId))el.remove();});
+ for(const item of state.decorations){
+  let el=Array.from(door.querySelectorAll('.placed-sticker')).find(el=>el.dataset.stickerId===item.id);
+  if(!el){
+   el=document.createElement(editable?'button':'div');el.className='placed-sticker'+(editable?' sticker-target':'');el.dataset.stickerId=item.id;
+   el.innerHTML=stickerSvg(item.key);
+   if(editable){
+    el.type='button';el.setAttribute('aria-label','붙인 스티커 '+(state.decorations.indexOf(item)+1)+' 이동');
+    el.onclick=()=>{activeStickerSlot=item.id;selectEditorTab('stickers');render();};
+    el.onpointerdown=event=>{
+     if(event.button!==0)return;event.preventDefault();activeStickerSlot=item.id;selectEditorTab('stickers');render();el.setPointerCapture(event.pointerId);
+     const rect=door.getBoundingClientRect(),origin={x:item.x,y:item.y},start={x:event.clientX,y:event.clientY};
+     el.onpointermove=move=>{item.x=Math.max(.14,Math.min(.85,origin.x+(move.clientX-start.x)/rect.width));item.y=Math.max(.30,Math.min(.86,origin.y+(move.clientY-start.y)/rect.height));syncDecorations(door,true);syncDecorations($('door'),false);};
+     const stop=()=>{el.onpointermove=null;el.onpointerup=null;el.onpointercancel=null;};el.onpointerup=stop;el.onpointercancel=stop;
+    };
+    el.onkeydown=event=>{
+     if(event.key==='Delete'||event.key==='Backspace'){event.preventDefault();state.decorations=state.decorations.filter(sticker=>sticker.id!==item.id);activeStickerSlot=null;render();return;}
+     const delta={ArrowLeft:[-.02,0],ArrowRight:[.02,0],ArrowUp:[0,-.02],ArrowDown:[0,.02]}[event.key];
+     if(!delta)return;event.preventDefault();activeStickerSlot=item.id;item.x=Math.max(.14,Math.min(.85,item.x+delta[0]));item.y=Math.max(.30,Math.min(.86,item.y+delta[1]));render();
+    };
+   }
+   door.append(el);
+  }
+  el.style.left=item.x*100+'%';el.style.top=item.y*100+'%';el.style.width=item.size+'px';el.style.height=item.size+'px';
+  if(editable){el.setAttribute('aria-label','붙인 스티커 '+(state.decorations.indexOf(item)+1)+' 이동');const selected=item.id===activeStickerSlot;el.classList.toggle('selected-slot',selected);el.setAttribute('aria-pressed',String(selected));}
+ }
+ if(editable){
+  let remove=door.querySelector('.remove-placed-sticker');
+  if(!remove){
+   remove=document.createElement('button');remove.type='button';remove.className='remove-placed-sticker';remove.textContent='×';remove.setAttribute('aria-label','선택한 스티커 삭제');
+   remove.onclick=()=>{state.decorations=state.decorations.filter(item=>item.id!==activeStickerSlot);activeStickerSlot=null;render();$('stickers').querySelector('button')?.focus({preventScroll:true});};
+   door.append(remove);
+  }
+  const selected=state.decorations.find(item=>item.id===activeStickerSlot);
+  remove.hidden=!selected;
+  if(selected){remove.style.left='calc('+selected.x*100+'% + '+selected.size/2+'px)';remove.style.top='calc('+selected.y*100+'% - '+selected.size/2+'px)';}
+ }
+}
+function buildEditorPreview(){
+ const cabinet=$('cabinet').cloneNode(true);cabinet.className='cabinet closed editor-cabinet';cabinet.removeAttribute('id');cabinet.removeAttribute('style');
+ cabinet.querySelectorAll('button').forEach(b=>{b.disabled=true;b.tabIndex=-1;});
+ cabinet.querySelectorAll('.inside,.cabinet-privacy-notice,.lock-sparkles,.lock-shimmer-surface,defs').forEach(el=>el.remove());
+ cabinet.querySelectorAll('[id]').forEach(el=>el.removeAttribute('id'));
+ cabinet.querySelectorAll('.celebrating,.unlocking').forEach(el=>el.classList.remove('celebrating','unlocking'));
+ cabinet.querySelectorAll('.placed-sticker').forEach(el=>el.remove());
+ $('editorPreview').replaceChildren(cabinet);syncEditorPreview();
+}
+function syncEditorPreview(){
+ const preview=$('editorPreview');if(!preview?.firstElementChild)return;
+ preview.querySelector('.nameplate span').textContent=nameCharacters($('name').value.trim()).slice(0,NAME_LIMIT).join('')||'내 이름';
+ syncDecorations(preview.querySelector('.door'),true);
+ deleteSticker.hidden=state.decorations.length===0;
+}
+selectEditorTab('stickers');

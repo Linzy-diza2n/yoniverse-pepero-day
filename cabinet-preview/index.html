@@ -1,10 +1,92 @@
 <!doctype html>
-<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>내 캐비넷 — a little space for you</title><link rel="stylesheet" href="style.css?v=effects-preview-28"></head>
+<html lang="ko">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><title>요니버스 — 마음이 도착하는 캐비넷</title><link rel="stylesheet" href="landing.css?v=gentle-float-56"><link rel="stylesheet" href="theme.css?v=1"><link rel="stylesheet" href="site-nav.css"></head>
 <body>
-<header><a class="brand" href="./">youniverse<span>♡</span></a><div class="season">YOUR CABINET. YOUR RULES.</div><button class="avatar" id="profile" aria-label="이름표 바꾸기">Y</button></header>
-<main><section class="intro"><span class="eyebrow">MY CABINET, MY RULES.</span><h1>내 취향을<br><em>열어봐!</em></h1><p>좋아하는 건 다 넣어!<br>여긴 나만의 작은 캐비넷이니까.</p><div class="owner"><span class="dot"></span> <span id="ownerName">요니</span>의 캐비넷 <span class="tag">MY SPACE</span></div><button class="primary" id="customize">✧ 내 캐비넷 꾸미기 <span>↗</span></button><button class="secondary" id="invite">친구 초대하기 <span>↗</span></button><div class="small-note">마음이 도착하는 날, 11월 11일</div></section>
-<section class="stage" aria-label="내 캐비넷 미리보기"><div class="hallway" aria-hidden="true"><div class="hall-ceiling"></div><div class="hall-wall"></div><div class="hall-floor"></div><div class="hall-bank bank-left"><div class="neighbor"><i></i><b></b><span>1107</span></div><div class="neighbor"><i></i><b></b><span>1108</span></div><div class="neighbor"><i></i><b></b><span>1109</span></div></div><div class="hall-bank bank-right"><div class="neighbor"><i></i><b></b><span>1112</span></div><div class="neighbor"><i></i><b></b><span>1113</span></div><div class="neighbor"><i></i><b></b><span>1114</span></div></div><div class="hall-light light-left"></div><div class="hall-light light-right"></div></div><div class="stage-label" aria-hidden="true"></div><div class="cabinet" id="cabinet"><div class="inside gift-interior"><div class="gift-interior-title">FOR YOU ♡<small>도착한 마음을 꺼내봐</small></div><button type="button" class="present present-pink" data-gift="pink" aria-label="핑크 빼빼로 선물과 편지 보기"><span class="pepero-sticks"><i></i><i></i><i></i></span><span class="present-wrap"><b>♡</b><small>SWEET LOVE</small></span><span class="present-ribbon">୨୧</span></button><button type="button" class="present present-yellow" data-gift="yellow" aria-label="노랑 빼빼로 선물과 편지 보기"><span class="pepero-sticks"><i></i><i></i><i></i></span><span class="present-wrap"><b>☺</b><small>FOR YOU</small></span><span class="present-ribbon">୨୧</span></button><div class="gift-shelf shelf-upper"></div><button class="gift-box received-letter" id="gift"><span class="letter-heart">♡</span><span>너에게 보내는 편지</span><small>눌러서 열어보기</small></button><button type="button" class="present present-purple" data-gift="purple" aria-label="보라 빼빼로 선물과 편지 보기"><span class="pepero-sticks"><i></i><i></i><i></i></span><span class="present-wrap"><b>✧</b><small>HAPPY 11.11</small></span><span class="present-ribbon">୨୧</span></button><div class="gift-shelf shelf-lower"></div><div class="sample-gifts-label">미리보기용 샘플 선물</div></div><div class="door" id="door"><div class="vents"><i></i><i></i></div><button class="nameplate" id="nameplate"><span id="plateName">요니</span></button><div class="door-sticker" id="doorSticker">♡</div><div class="mini-sticker">LOVE<br>IT!</div><button class="handle" id="handle" aria-label="캐비넷 문 닫기"><span></span></button><div class="bottom-vents"><i></i><i></i></div><div class="door-number">11 — 11</div></div></div><svg class="doodle doodle-arrow" viewBox="0 0 140 130" aria-hidden="true"><path d="M20 10 C100 0 20 90 68 62 S130 80 98 110 M75 96 L98 114 115 91"/></svg><svg class="doodle doodle-stars" viewBox="0 0 100 150" aria-hidden="true"><path d="M45 5 L50 33 76 39 50 46 43 72 36 46 10 38 35 32Z" fill="#ffe26a"/><path d="M75 95 L77 109 92 114 78 119 72 137 68 119 53 114 68 109Z" fill="#6045f5"/></svg><svg class="doodle doodle-squiggle" viewBox="0 0 180 70" aria-hidden="true"><path d="M5 45 C35 -35 75 95 45 50 S110 -20 100 35 S155 80 170 10"/></svg><div class="floor-shadow"></div></section>
-<aside class="details"><span class="eyebrow">PICK YOUR VIBE ✦</span><h2>오늘은 무슨 색?</h2><div class="swatches" id="swatches"></div><div class="divider"></div><div class="stickers" id="stickers"></div><div class="letter-note"><span class="note-icon">♡</span><h3>쉿! 마음 보관 중 ♡</h3><p>두근두근, 어떤 마음이 도착할까?<br>11월 11일에 보관함을 열어봐!</p></div></aside></main>
-<footer><span>나를 담는 작은 공간, 마음을 잇는 요니버스.</span><span>DOODLE CABINET — CONCEPT <b>03</b></span></footer>
-<dialog id="editor"><form method="dialog" id="editForm"><button class="close" aria-label="닫기" value="cancel" formnovalidate>×</button><span class="eyebrow">A NAME THAT FEELS LIKE YOU</span><h2>이 공간의 이름은?</h2><label for="name">이름표</label><input id="name" maxlength="12" required autocomplete="nickname" placeholder="최대 12자"><p>색과 스티커는 화면에서 바로 바꿀 수 있어.<br>꾸민 모습은 이 브라우저에 저장돼.</p><button class="primary" value="save">이름표 붙이기 ↗</button></form></dialog>
-<dialog id="info"><button class="close" id="closeInfo" aria-label="닫기">×</button><span class="eyebrow">LETTERS & LOVE</span><h2 id="infoTitle"></h2><p id="infoBody"></p><p id="paymentNotice" class="payment-notice" hidden>디자인 시안 · 결제 서비스 연결 전이에요. 실제 결제나 선물 공개는 진행되지 않아요.</p><button class="primary" id="okay">알겠어 ♡</button></dialog><div class="toast" id="toast" role="status"></div><script src="app.js?v=effects-preview-28"></script></body></html>
+<div class="chocolate-top" aria-hidden="true">
+<svg class="chocolate-wide" viewBox="0 0 1440 90" preserveAspectRatio="none" focusable="false">
+<path class="chocolate-pour" d="M0 0H1440V34
+C1410 39 1384 25 1358 30
+C1338 34 1344 65 1326 67
+C1305 69 1315 38 1293 32
+C1260 23 1228 44 1184 40
+C1152 37 1127 26 1104 31
+C1080 36 1094 80 1070 81
+C1043 82 1058 42 1036 35
+C1015 28 1001 44 979 43
+C948 43 933 24 896 28
+C851 33 829 49 794 41
+C773 36 779 61 762 63
+C740 65 748 34 724 30
+C678 23 652 42 611 38
+C581 35 569 22 545 28
+C524 34 536 76 513 77
+C490 78 502 43 483 36
+C462 28 446 44 422 42
+C385 40 370 26 337 30
+C309 33 299 50 275 46
+C254 43 253 30 233 32
+C211 34 220 66 200 67
+C180 68 188 34 168 29
+C129 20 102 41 63 35
+C38 31 23 24 0 33Z"/>
+</svg>
+<svg class="chocolate-narrow" viewBox="0 0 390 72" preserveAspectRatio="none" focusable="false">
+<path class="chocolate-pour" d="M0 0H390V28C370 32 358 22 342 25C328 28 336 52 322 54C306 56 315 29 298 26C275 22 260 37 238 32C222 28 213 21 201 25C186 30 196 65 180 66C162 67 172 33 156 28C137 21 124 37 102 33C86 30 76 24 64 28C51 33 58 48 46 49C32 50 38 27 24 25C15 24 7 26 0 29Z"/>
+</svg>
+</div>
+<header><a class="brand" href="landing.html">yoniverse ♡</a><a class="app-link" href="https://yoniverse.wiiee.co.kr/" aria-label="요니버스 앱으로 이동">요니버스 앱으로 ↗</a></header>
+<main><section class="hero">
+<div><span class="hero-subtitle">11월 11일, 마음을 전하는 날</span><h1>말 못 한 마음,<br>내 캐비넷에<br><em>넣어둘래?</em></h1><p>초코막대과자에 마음을 담고, 리본으로 살짝 묶어요.<br>작은 편지와 함께 캐비넷에 쏙 넣어요.</p><button class="start" data-start>3초만에 내 캐비넷 만들기 ↗</button></div>
+<div class="hero-art" role="img" aria-label="리본으로 포장한 막대 초콜릿과 편지가 놓인 분홍색 캐비넷"><span class="art-note">기다리는 사람의 마음이<br>와있을지도!?</span><span class="star"><svg class="line-icon icon-star" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M31 5Q35 25 58 31Q37 35 33 59Q26 38 5 33Q26 28 31 5Z"/></svg></span><svg class="sketch-arrow" viewBox="0 0 160 140" aria-hidden="true"><path d="M12 15C96 0 126 66 74 70C18 74 57 13 111 44C141 62 135 102 113 121M90 105l23 19 25-15"/></svg><svg class="sketch-spark" viewBox="0 0 100 100" aria-hidden="true"><path d="M42 7l7 30 35-15-20 28 25 18-34-4-8 29-8-31-31 8 23-23L12 29l28 8Z"/></svg><div class="locker"><span class="locker-hinge hinge-top" aria-hidden="true"></span><span class="locker-hinge hinge-bottom" aria-hidden="true"></span><div class="vents"></div><div class="nameplate">my cabinet</div><div class="heart"><svg class="line-icon icon-heart" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M32 54C24 47 7 35 7 21C7 7 25 5 32 18C39 5 57 7 57 21C57 35 40 47 32 54Z"/></svg></div><div class="handle"></div><svg class="locker-padlock" focusable="false" viewBox="0 0 50 66" aria-hidden="true"><path d="M13 29 V17 C13 1 37 1 37 17 V30" fill="none" stroke="#282830" stroke-width="9" stroke-linecap="round"/><path d="M13 29 V17 C13 1 37 1 37 17 V30" fill="none" stroke="#e1e3e9" stroke-width="5" stroke-linecap="round"/><rect x="5" y="26" width="40" height="33" rx="6" fill="#ffe18a" stroke="#25242c" stroke-width="2.5"/><path d="M10 31 H40" stroke="#fff4c7" stroke-width="3" stroke-linecap="round"/><circle cx="25" cy="41" r="4" fill="#49424c"/><path d="M25 43 V49" stroke="#49424c" stroke-width="4" stroke-linecap="round"/></svg><span class="smile"><svg class="line-icon icon-smile" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="26"/><path d="M19 36Q32 53 45 36"/><circle class="eye" cx="22" cy="24" r="1.7"/><circle class="eye" cx="42" cy="24" r="1.7"/></svg></span><div class="bottom-vents"></div></div><img class="chocolate-gift gift-with-letter" src="assets/hero-gift-flat-v4.png" alt="" aria-hidden="true" decoding="async"><div class="envelope closed-envelope"><svg class="envelope-folds" viewBox="0 0 140 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path class="envelope-seams" d="M2 98L53 48M138 98L87 48"/><path class="envelope-flap" d="M1 1H139L78 56Q70 63 62 56Z"/></svg></div><span class="art-caption">마음을 확인하는 날 <b>11.11</b></span></div>
+</section>
+<div class="doodle-strip" aria-hidden="true"><span><svg class="line-icon icon-star" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M31 5Q35 25 58 31Q37 35 33 59Q26 38 5 33Q26 28 31 5Z"/></svg></span><svg viewBox="0 0 240 90"><path d="M5 56C41 6 80 7 78 42S27 78 44 37 121 16 127 49 165 78 197 32M178 34l23-10 8 24"/></svg><span><svg class="line-icon icon-heart" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M32 54C24 47 7 35 7 21C7 7 25 5 32 18C39 5 57 7 57 21C57 35 40 47 32 54Z"/></svg></span><span><svg class="line-icon icon-smile" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="26"/><path d="M19 36Q32 53 45 36"/><circle class="eye" cx="22" cy="24" r="1.7"/><circle class="eye" cx="42" cy="24" r="1.7"/></svg></span><svg viewBox="0 0 150 90"><path d="M5 65l30-44 10 43 35-47 10 44 40-40M110 20l24-5-3 24"/></svg><span><svg class="line-icon icon-spark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M32 6V58M6 32H58M14 14L50 50M14 50L50 14"/></svg></span></div>
+<section class="gift-making" aria-labelledby="gift-making-title">
+<div class="making-heading"><h2 id="gift-making-title">고르는 순간부터,<br>이미 선물은 시작된 거니까.</h2><p>어떤 토핑을 좋아할까, 리본은 무슨 색이 좋을까?<br>친구를 떠올리며 꾸미고 포장하는 시간도 선물이에요.</p></div>
+<div class="making-composition">
+<div class="making-gift-scene">
+<img class="making-finished-gift" src="assets/hero-gift-letter-v1.png" alt="투명 포장과 분홍 리본으로 꾸미고 작은 편지를 단 막대과자 선물" loading="lazy" decoding="async">
+<svg class="making-toppings" viewBox="0 0 520 500" fill="none" aria-hidden="true">
+<g stroke="#38251e" stroke-width="2" stroke-linejoin="round">
+<path d="m72 96 5 12 13 1-10 9 3 13-11-7-11 7 3-13-10-9 13-1Z" fill="#fff0ac"/>
+<path d="m425 166 4 10 11 1-8 7 2 11-9-6-9 6 2-11-8-7 11-1Z" fill="#f7bbd1"/>
+<rect x="105" y="60" width="10" height="15" rx="2" transform="rotate(22 105 60)" fill="#77472f"/>
+<rect x="424" y="116" width="10" height="13" rx="2" transform="rotate(-25 424 116)" fill="#77472f"/>
+<rect x="61" y="353" width="11" height="13" rx="2" transform="rotate(30 61 353)" fill="#77472f"/>
+<path d="M99 324c-9-13-21 0-3 12 19-10 9-23 3-12Z" fill="#ed86ab"/>
+</g><g stroke="#df91a9" stroke-width="4" stroke-linecap="round"><path d="m130 96 7 6m-67 207 7-5m366-98 7 5"/></g>
+<g transform="translate(419 350) rotate(24)" stroke="#211c19" stroke-width="2.5" stroke-linejoin="round">
+<path d="M0 0h18v94L9 117 0 94Z" fill="#ffe798"/><path d="M0 0v-12q9-9 18 0V0" fill="#ed86ab"/><path d="M0 7h18M0 94h18M9 8v85"/><path d="m5 107 4 10 4-10" fill="#211c19"/>
+</g></svg>
+</div>
+<ol class="making-capsules" aria-label="선물을 완성하는 세 단계">
+<li><span class="making-step-no" aria-hidden="true">01</span><span class="making-step-label">취향대로 꾸민 달콤한 과자</span><svg class="making-step-icon" viewBox="0 0 48 48" fill="none" stroke="#171513" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 30 7-22 7 2-7 22Z" fill="#704332"/><path d="m26 33 4-26 7 1-4 26Z" fill="#efabc6"/><path d="m18 13 5 2m-7 5 5 2m10-8 3 2m-4 5 3 2" stroke="#fff8ee"/></svg></li>
+<li><span class="making-step-no" aria-hidden="true">02</span><span class="making-step-label">리본까지 정성 들인 포장</span><svg class="making-step-icon" viewBox="0 0 48 48" fill="none" stroke="#171513" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 18h32v23H8Z" fill="#fff8ee"/><path d="M24 18v23M8 26h32"/><path d="M24 18C6 18 11 3 19 10ZM24 18C42 18 37 3 29 10Z" fill="#efabc6"/></svg></li>
+<li><span class="making-step-no" aria-hidden="true">03</span><span class="making-step-label">마음을 꾹꾹 담은 편지</span><svg class="making-step-icon" viewBox="0 0 48 48" fill="none" stroke="#171513" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13h38v27H5Z" fill="#fff8ee"/><path d="m5 13 19 16 19-16M5 40l13-16m25 16L30 24"/><path d="M33 7v-5m5 7 4-3"/></svg></li>
+</ol>
+</div></section>
+<section class="sender-intro" aria-labelledby="sender-title">
+<div class="sender-copy"><h2 id="sender-title">이름을 남겨도,<br>비밀로 해도 돼요.</h2><p>나라고 밝히고 전하는 고마움도,<br>익명이라 꺼낼 수 있는 솔직한 한마디도.<br>메시지를 보낼 때, 이름을 공개할지 선택해요.</p></div>
+<div class="sender-letters" aria-label="이름 공개와 익명 메시지 예시">
+<img class="sender-gift sender-open-envelope" src="assets/sender-open-envelope.svg?v=2" alt="" aria-hidden="true" loading="lazy" decoding="async">
+<article class="sender-letter signed"><p>네 얘기는 언제든 환영이야.<br>오늘도 맛있는 거 먹고, 많이 웃자 ♡</p><span class="sender-from">from. 친구, 민지</span></article>
+<article class="sender-letter anonymous"><p>오늘도 너 덕분에 웃었어.<br>고맙다는 말, 꼭 해주고 싶었어.</p><span class="sender-from">from. 익명의 누군가</span></article>
+
+</div></section>
+<section class="how" id="how"><h2>마음을 전하는 건,<br>생각보다 간단해요.</h2><div class="steps"><article><span>01 <svg class="line-icon icon-star" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M31 5Q35 25 58 31Q37 35 33 59Q26 38 5 33Q26 28 31 5Z"/></svg></span><h3>내 취향으로 꾸미고</h3><p>좋아하는 색과 스티커로<br>나만의 캐비넷을 만들어요.</p></article><article><span>02 ↗</span><h3>친구에게 내 캐비넷 주소 보내기</h3><p>친구는 초콜릿을 꾸미고<br>편지와 함께 마음을 넣어둘 거예요.</p></article><article><span>03 <svg class="line-icon icon-heart" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M32 54C24 47 7 35 7 21C7 7 25 5 32 18C39 5 57 7 57 21C57 35 40 47 32 54Z"/></svg></span><h3>11월 11일에 열어봐요</h3><p>누가 어떤 마음을 보냈을까요?<br>설레는 마음을 함께 확인해봐요!</p></article></div><p class="price-note">선물 보내기는 무료예요. 받은 선물은 11월 11일에 990원으로 한 번 결제하면 모두 열어볼 수 있어요.<br>결제 후 추가로 받은 선물도 포함돼요. 보내기와 결제는 11월 11일 밤 11:59까지 가능해요.</p></section>
+<section class="last-call"><span class="snack-sticker" aria-hidden="true"><svg class="snack-icon" viewBox="0 0 80 80" focusable="false"><g stroke="#39261f" stroke-width="1.5" stroke-linejoin="round"><g transform="rotate(-23 40 40)"><rect x="25" y="8" width="11" height="65" rx="5.5" fill="#e7bb83"/><path d="M25 14Q25 7 31 8Q36 8 36 14V54Q31 58 25 54Z" fill="#704332"/><path d="M27 21l7 4m-7 9 7 4m-7 9 7 4" stroke="#fff0d6" stroke-width="2"/></g><g transform="rotate(21 40 40)"><rect x="44" y="7" width="11" height="66" rx="5.5" fill="#e7bb83"/><path d="M44 13Q44 6 50 7Q55 7 55 13V54Q50 58 44 54Z" fill="#efabc6"/><path d="M46 20l7 4m-7 9 7 4m-7 9 7 4" stroke="#fff8ee" stroke-width="2"/></g></g></svg></span><h2>11월 11일, 달콤하게 전해봐요!</h2><button class="start" data-start>3초만에 내 캐비넷 만들기 ↗</button></section><section class="app-promo" aria-labelledby="app-promo-title">
+<div class="app-promo-card">
+<img class="app-promo-icon" src="assets/yoniverse-app-icon.png" alt="요니버스 앱 아이콘" width="72" height="72" loading="lazy">
+<div class="app-promo-copy"><span class="app-promo-brand">연애 고민∙공감 커뮤니티</span><h2 id="app-promo-title">요니버스</h2><p>우리들의 가장 솔직한 연애 이야기가 모이는 우주</p></div>
+<div class="app-promo-actions"><a class="app-download" id="app-download" href="https://yoniverse.wiiee.co.kr/">요니버스 앱 다운로드</a></div>
+</div>
+</section></main>
+<footer class="company-footer">
+<b>yoniverse ♡</b>
+<div class="company-info">
+<p><span>대표이사 범지민</span><span>사업자등록번호 236-81-02950</span></p>
+<p><span>EMAIL <a href="mailto:wiiee.company@gmail.com">wiiee.company@gmail.com</a></span><span>통신판매번호 : 2026-인천연수구-2725</span></p>
+<p><span>인천광역시 연수구 갯벌로12, 송도본원 7층 7-10호(송도동, 인천창조경제혁신센터)</span><span>TEL <a href="tel:050713361915">0507.1336.1915</a></span></p>
+</div>
+</footer>
+<dialog id="login-notice" aria-labelledby="notice-title"><form method="dialog"><button class="close" aria-label="닫기">×</button><span class="eyebrow">SEE YOU SOON</span><h2 id="notice-title">곧 만나요 ♡</h2><p>카카오 로그인을 준비하고 있어요.<br>지금은 캐비넷 시안을 둘러볼 수 있어요.</p><a class="preview-link" href="cabinet.html">캐비넷 시안 둘러보기 ↗</a></form></dialog>
+<dialog id="app-store-choice" aria-labelledby="app-store-title"><form method="dialog"><button class="close" aria-label="닫기">×</button></form><h2 id="app-store-title">요니버스 앱 다운로드</h2><p>사용하는 휴대폰의 스토어를 선택해 주세요.</p><div class="store-options"><a class="app-download" href="https://apps.apple.com/kr/app/id6803411489">App Store · iPhone</a><a class="app-download" href="https://play.google.com/store/apps/details?id=com.wiiee.yoniverse">Google Play · Android</a></div></dialog><script src="landing.js?v=sticky-47"></script><script src="site-nav.js"></script></body></html>
