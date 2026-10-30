@@ -220,7 +220,7 @@ const effectPreviewButton = document.createElement('button');
 effectPreviewButton.className = 'effect-preview';
 effectPreviewButton.type = 'button';
 function renderEffectPreviewButton() {
- effectPreviewButton.textContent = previewLockEffects ? '효과 미리보기 끄기' : '11/11 효과 미리보기 ✧';
+ effectPreviewButton.textContent = previewLockEffects ? '(내부) 효과 미리보기 끄기' : '(내부) 11/11 효과 미리보기 ✧';
  effectPreviewButton.setAttribute('aria-pressed', String(previewLockEffects));
 }
 effectPreviewButton.onclick = () => {
@@ -237,7 +237,7 @@ let cabinetUnlocking = false;
 const paymentPreviewButton = document.createElement('button');
 paymentPreviewButton.type = 'button';
 paymentPreviewButton.className = 'payment-preview';
-paymentPreviewButton.textContent = '결제 완료 장면 미리보기';
+paymentPreviewButton.textContent = '(내부) 결제 완료 장면 미리보기';
 const previewControls = document.createElement('div');
 previewControls.className = 'preview-controls';
 document.querySelector('.stage').append(previewControls);
@@ -247,14 +247,14 @@ function openPaidCabinet() {
  if ($('padlock').classList.contains('unlocked')) {
   $('cabinet').classList.remove('closed');
   $('gift').tabIndex = 0;
-  paymentPreviewButton.textContent = '캐비넷 문 닫기';
+  paymentPreviewButton.textContent = '(내부) 캐비넷 문 닫기';
   return;
  }
  cabinetUnlocking = true;
  $('padlock').disabled = true;
  $('padlock').classList.add('unlocking');
  paymentPreviewButton.disabled = true;
- paymentPreviewButton.textContent = '소중한 마음을 여는 중…';
+ paymentPreviewButton.textContent = '(내부) 소중한 마음을 여는 중…';
  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
  cabinetOpenTimer = setTimeout(() => {
   $('padlock').classList.add('unlocked');
@@ -265,7 +265,7 @@ function openPaidCabinet() {
   $('padlock').classList.remove('unlocking');
   $('padlock').disabled = false;
   $('padlock').setAttribute('aria-label','열린 자물쇠 · 캐비넷 열기');
-  paymentPreviewButton.textContent = '캐비넷 문 닫기';
+  paymentPreviewButton.textContent = '(내부) 캐비넷 문 닫기';
  }, reducedMotion ? 0 : 1000);
 }
 paymentPreviewButton.onclick = () => {
@@ -275,7 +275,7 @@ paymentPreviewButton.onclick = () => {
    $('letterReader')?.close();
    $('cabinet').classList.add('closed');
    $('gift').tabIndex = -1;
-   paymentPreviewButton.textContent = '캐비넷 문 열기';
+   paymentPreviewButton.textContent = '(내부) 캐비넷 문 열기';
   }
  } else {
   try { localStorage.setItem('cabinet-payment-visual-demo-v1', 'completed'); } catch {}
@@ -290,7 +290,7 @@ try {
   $('padlock').classList.add('unlocked');
   $('padlock').setAttribute('aria-label','열린 자물쇠 · 캐비넷 열기');
   effectPreviewButton.disabled = true;
-  paymentPreviewButton.textContent = '캐비넷 문 열기';
+  paymentPreviewButton.textContent = '(내부) 캐비넷 문 열기';
   syncLockEffects();
  }
 } catch {}
@@ -309,7 +309,7 @@ if (new URLSearchParams(location.search).get('previewInterior') === '1') {
  $('cabinet').classList.remove('closed');
  $('gift').tabIndex = 0;
  effectPreviewButton.disabled = true;
- paymentPreviewButton.textContent = '캐비넷 문 닫기';
+ paymentPreviewButton.textContent = '(내부) 캐비넷 문 닫기';
  syncLockEffects();
 }
 
