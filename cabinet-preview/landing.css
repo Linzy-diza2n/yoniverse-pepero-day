@@ -23,7 +23,7 @@ html,body{background:#fff;color:var(--ink)}
 header{max-width:1280px;padding:28px 48px;border-bottom:0}
 .brand{font-size:28px;letter-spacing:-1.8px}
 header button{border:1.5px solid var(--ink);font-weight:700;padding:10px 24px;box-shadow:3px 3px 0 var(--ink);background:white}
-.hero{position:relative;max-width:1240px;padding:100px 48px 70px;gap:60px}
+.hero{position:relative;max-width:1240px;padding:40px 48px 70px;gap:60px}
 .hero-badge{position:absolute;top:25px;left:48px;background:var(--pink);border:2.5px solid var(--ink);border-radius:50%;padding:12px 24px;font-size:13px;font-weight:700;transform:rotate(-7deg)}
 .hero .eyebrow{display:none}
 h1{font-size:clamp(46px,5.6vw,76px);font-weight:900;letter-spacing:-4px;line-height:1.22;margin:30px 0}
@@ -157,7 +157,7 @@ header .app-link:hover{background:#fff0d6}
 @media(max-width:700px){.sender-intro{grid-template-columns:1fr;margin:0 24px;padding:40px 0 48px;gap:24px}.sender-copy p{font-size:14px}.sender-letters{max-width:390px;width:100%;margin:auto}.sender-letter.anonymous{margin-left:22px}.sender-letter p{font-size:13px}}
 
 /* Tighten the mobile opening now that the top badge is removed. */
-@media(max-width:700px){.hero{padding-top:36px}.hero-subtitle{margin-top:0}}
+@media(max-width:700px){.hero{padding-top:24px}.hero-subtitle{margin-top:0}}
 
 /* A visual introduction to preparing a gift. */
 .gift-making{max-width:1144px;margin:0 auto;padding:54px 0 64px;border-top:2.5px solid var(--ink)}
