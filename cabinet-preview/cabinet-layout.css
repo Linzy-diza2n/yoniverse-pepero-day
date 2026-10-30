@@ -65,3 +65,28 @@
 .customize-brush{position:absolute;top:16px;left:16px;z-index:10;display:grid;place-items:center;width:46px;height:46px;border:1.5px solid #704332;border-radius:14px;background:#fffaf4;color:#704332;cursor:pointer;box-shadow:2px 3px 0 #70433218}
 .customize-brush:hover{background:#fff0d6}
 .customize-brush:focus-visible{outline:2px solid #704332;outline-offset:3px}
+
+/* Compact desktop overview; retain the stacked mobile layout. */
+@media(min-width:1001px){
+ .cabinet-theme header{max-width:1000px;margin:0 auto;height:72px;padding-inline:24px}
+ .cabinet-theme main{max-width:1000px;padding:24px 24px 32px;grid-template-columns:minmax(0,1fr) 340px;grid-template-areas:"stage intro" "stage sidebar";grid-template-rows:auto 1fr;gap:22px 32px}
+ .cabinet-theme .intro{padding-top:8px}
+ .cabinet-theme .intro h1{font-size:28px;line-height:1.35;white-space:normal;letter-spacing:-1px;margin-bottom:10px}
+ .cabinet-theme .intro h1 .title-break{display:block}
+ .cabinet-theme .intro h1 em{margin-left:0}
+ .cabinet-theme .intro>p{font-size:12px}
+ .cabinet-theme .intro .reminder-open{margin-top:14px;min-height:40px;padding:9px 14px;font-size:12px}
+ .cabinet-theme main>.stage{height:490px;min-height:490px;padding-top:8px;border-radius:22px}
+ .cabinet-theme main>.stage .cabinet{margin-top:44px;transform-origin:top center;transform:translateX(var(--cabinet-center-offset,0px)) scale(.82)}
+ .cabinet-sidebar{padding-top:8px}
+ .cabinet-sidebar .school-card{padding:18px}
+ .cabinet-sidebar .school-card h2{font-size:18px}
+ .cabinet-sidebar .letter-note{margin-top:22px;padding:16px}
+ .cabinet-theme .customize-brush{width:40px;height:40px;top:12px;left:12px}
+}
+@media(min-width:751px) and (max-width:1000px){
+ .cabinet-theme .intro h1{font-size:30px}
+ .cabinet-theme main{padding-top:22px;gap:20px 24px}
+ .cabinet-theme main>.stage{height:490px;min-height:490px;padding-top:8px}
+ .cabinet-theme main>.stage .cabinet{margin-top:44px;transform-origin:top center;transform:translateX(var(--cabinet-center-offset,0px)) scale(.82)}
+}
