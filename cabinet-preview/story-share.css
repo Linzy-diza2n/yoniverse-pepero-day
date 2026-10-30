@@ -1,5 +1,3 @@
-.cabinet-actions .story-trigger{grid-column:auto;min-height:42px;font-size:13px;background:#fff8ed}
-body.cabinet-theme:has(.story-trigger){padding-bottom:175px}
 #story-share{width:min(420px,calc(100% - 32px));max-height:90dvh;box-sizing:border-box;padding:28px;text-align:center;overflow:auto;border:1px solid #ddc7bd;border-radius:24px;background:#fffaf2;color:#694a40}
 #story-share h2{font-size:23px;margin:10px 0}
 #story-share p{font-size:13px;line-height:1.6}
@@ -7,12 +5,14 @@ body.cabinet-theme:has(.story-trigger){padding-bottom:175px}
 #story-share [hidden]{display:none!important}
 #story-share .primary,#story-share .secondary{display:block;width:100%;box-sizing:border-box;margin-top:10px;padding:14px;text-decoration:none;font-size:14px;border-radius:14px}
 #story-share .story-status{font-size:11px}
-/* Keep both action rows above the fixed site navigation. */
-body.cabinet-theme:has(.story-trigger) .cabinet-actions{bottom:calc(80px + env(safe-area-inset-bottom))}
-body.cabinet-theme:has(.story-trigger){padding-bottom:220px!important}
-body.cabinet-theme:has(.story-trigger) .toast{bottom:calc(200px + env(safe-area-inset-bottom))}
-
 #story-share .story-download,#story-share .story-copy{position:relative;padding-inline:42px}
 #story-share .action-check{position:absolute;right:16px;top:50%;transform:translateY(-50%);width:22px;height:22px;visibility:hidden}
 #story-share .action-done .action-check{visibility:visible}
 #story-share .story-feedback{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* Keep download secondary, within the cabinet illustration. */
+.cabinet-theme .stage .story-trigger{flex:0 0 100%;width:100%;max-width:300px;min-height:40px;margin:3px auto 0;padding:10px 12px;justify-content:center;border:1px solid #d8c5b9;border-radius:12px;background:#fffaf4;color:#704332;font-size:12px;font-weight:700;box-shadow:none}
+body.cabinet-theme:has(.story-trigger) .cabinet-actions{grid-template-columns:1fr}
+.cabinet-theme main>.stage:has(.story-trigger){height:704px;min-height:704px}
+@media(min-width:751px){.cabinet-theme main>.stage:has(.story-trigger){height:544px;min-height:544px}}
+@media(max-width:750px){.cabinet-theme main>.stage:has(.story-trigger){height:634px;min-height:634px}}
