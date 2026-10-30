@@ -4,7 +4,7 @@
  trigger.type = 'button'; trigger.className = 'secondary story-trigger';
  trigger.textContent = '인스타 스토리 이미지 다운로드 ↓';
  document.querySelector('.stage .preview-controls').append(trigger);
- document.body.insertAdjacentHTML('beforeend', `<dialog id="story-share" aria-labelledby="story-title"><button type="button" class="close" aria-label="닫기">×</button><h2 id="story-title">내 캐비넷을 스토리에!</h2><p>이미지를 저장하고, 스토리에 내 캐비넷 링크를 붙여주세요.</p><img class="story-preview" alt="내 이름과 꾸민 캐비넷이 담긴 스토리 이미지" hidden><p class="story-status" role="status"></p><a class="primary story-download" hidden>이미지 저장하기 ↓</a><button type="button" class="secondary story-copy">내 캐비넷 링크 복사</button></dialog>`);
+ document.body.insertAdjacentHTML('beforeend', `<dialog id="story-share" aria-labelledby="story-title"><button type="button" class="close" aria-label="닫기">×</button><h2 id="story-title">내 캐비넷을 스토리에!</h2><p>스토리에 내 캐비넷을 올려 친구들을 초대해봐요!</p><img class="story-preview" alt="내 이름과 꾸민 캐비넷이 담긴 스토리 이미지" hidden><p class="story-status" role="status"></p><a class="primary story-download" hidden>이미지 저장하기 ↓</a><button type="button" class="secondary story-copy">내 캐비넷 링크 복사</button></dialog>`);
  const dialog = document.getElementById('story-share');
  const preview = dialog.querySelector('img');
  const download = dialog.querySelector('a');
