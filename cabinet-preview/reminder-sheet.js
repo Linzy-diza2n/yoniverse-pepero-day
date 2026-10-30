@@ -9,7 +9,7 @@
     trigger = document.createElement('button');
     trigger.type = 'button';
     trigger.className = 'reminder-open';
-    trigger.textContent = '11월 11일 전 알림받기';
+    trigger.innerHTML = '<svg class="reminder-bell" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9Z"/><path d="M10 21h4M12 2V1"/></svg><span>11월 11일 전 알림받기</span>';
     intro.append(trigger);
   }
   const sheet = document.createElement('dialog');
