@@ -9,3 +9,10 @@ body[data-view="visitor"]{padding-bottom:125px}
 @media(max-width:380px){body[data-view="visitor"] .cabinet-actions{column-gap:6px}body[data-view="visitor"] .cabinet-actions .secondary{padding-inline:8px;font-size:11px}#makeGift{gap:5px;padding-inline:8px}}
 body[data-view="visitor"]:has(.site-navigation) .cabinet-actions{bottom:calc(80px + env(safe-area-inset-bottom))}
 body[data-view="visitor"]:has(.site-navigation){padding-bottom:190px!important}
+
+.visitor-header-actions{display:flex;align-items:center;gap:10px}
+.cabinet-shortcut{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;flex-shrink:0;color:#39261f;border-radius:12px}
+.cabinet-shortcut:hover{background:#fce4eb}
+.cabinet-shortcut:focus-visible{outline:2px solid #704332;outline-offset:2px}
+body.cabinet-theme[data-view="visitor"] .cabinet-actions{grid-template-columns:1fr}
+body[data-view="visitor"] #makeGift{width:100%}

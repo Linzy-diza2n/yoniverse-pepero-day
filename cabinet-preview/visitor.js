@@ -100,4 +100,3 @@ for(const item of decorations){
  el.style.top=(Number.isFinite(item.y)?Math.max(.3,Math.min(.86,item.y)):.6)*100+'%';
  el.style.width=el.style.height=(item.size===46?46:62)+'px';$('door').append(el);
 }
-if(localCabinet){$('myCabinet').textContent='내 캐비넷 가기';$('myCabinet').href='cabinet.html';}
