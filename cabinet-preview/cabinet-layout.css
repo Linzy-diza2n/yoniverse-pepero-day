@@ -61,3 +61,7 @@
 .cabinet-theme .stage .hall-bank{z-index:2}
 .cabinet-theme .stage .hall-floor{z-index:1}
 .cabinet-theme .stage .hall-light{top:calc(var(--ceiling-edge) * .32);z-index:3}
+
+.customize-brush{position:absolute;top:16px;left:16px;z-index:10;display:grid;place-items:center;width:46px;height:46px;border:1.5px solid #704332;border-radius:14px;background:#fffaf4;color:#704332;cursor:pointer;box-shadow:2px 3px 0 #70433218}
+.customize-brush:hover{background:#fff0d6}
+.customize-brush:focus-visible{outline:2px solid #704332;outline-offset:3px}

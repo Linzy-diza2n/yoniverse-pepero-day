@@ -1,4 +1,4 @@
-.cabinet-actions .story-trigger{grid-column:1/-1;min-height:42px;font-size:13px;background:#fff8ed}
+.cabinet-actions .story-trigger{grid-column:auto;min-height:42px;font-size:13px;background:#fff8ed}
 body.cabinet-theme:has(.story-trigger){padding-bottom:175px}
 #story-share{width:min(420px,calc(100% - 32px));max-height:90dvh;box-sizing:border-box;padding:28px;text-align:center;overflow:auto;border:1px solid #ddc7bd;border-radius:24px;background:#fffaf2;color:#694a40}
 #story-share h2{font-size:23px;margin:10px 0}

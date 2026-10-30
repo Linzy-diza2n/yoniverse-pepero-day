@@ -20,13 +20,19 @@
   document.body.append(sheet);
   trigger.setAttribute('aria-haspopup', 'dialog');
   trigger.setAttribute('aria-controls', sheet.id);
+  let returnTarget = trigger;
   const open = () => {
     if (sheet.open) return;
     sheet.showModal();
     document.documentElement.classList.add('reminder-sheet-open');
     sheet.querySelector('h2').focus({preventScroll:true});
   };
-  trigger.addEventListener('click', open);
+  trigger.addEventListener('click', () => { returnTarget = trigger; open(); });
+  document.getElementById('account-reminders')?.addEventListener('click', () => {
+    document.getElementById('account-menu').hidePopover();
+    returnTarget = document.getElementById('profile');
+    open();
+  });
   sheet.addEventListener('click', event => {
     if (event.target !== sheet) return;
     const rect = sheet.getBoundingClientRect();
@@ -34,7 +40,7 @@
   });
   sheet.addEventListener('close', () => {
     document.documentElement.classList.remove('reminder-sheet-open');
-    trigger.focus({preventScroll:true});
+    returnTarget.focus({preventScroll:true});
   });
   // Show only after the completion page has validated its preview receipt.
   if (completion) document.addEventListener('DOMContentLoaded', open, {once:true});

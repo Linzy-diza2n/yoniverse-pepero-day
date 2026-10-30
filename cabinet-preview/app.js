@@ -133,7 +133,7 @@ function cabinetShareLink(){
 }
 $('invite').onclick=async()=>{
  const link=cabinetShareLink();
- try { await navigator.clipboard.writeText(link); toast('내 캐비넷 링크를 복사했어요'); }
+ try { await navigator.clipboard.writeText(link); toast('링크를 복사했어요. 친구들에게 공유해요!'); }
  catch { info('링크를 직접 복사해 주세요',link); }
 };
 $('closeInfo').onclick=()=>$('info').close();$('okay').onclick=()=>$('info').close();
