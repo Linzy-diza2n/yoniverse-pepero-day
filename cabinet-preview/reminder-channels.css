@@ -1,0 +1,17 @@
+.reminder-channels{box-sizing:border-box;max-width:820px;margin:36px auto;padding:24px;color:#59443b;text-align:left}
+.reminder-channels h2{font-size:22px;line-height:1.5;margin:0 0 8px}
+.reminder-channels>p,.reminder-channels article p,.gift-login .reminder-channels p{font-size:13px;line-height:1.8;color:#786359;margin:0 0 16px}
+.reminder-channel-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.reminder-channel-grid article{padding:20px;border:1px solid #dccbc3;border-radius:18px;background:#fffaf6}
+.reminder-channels .channel-tag{font:600 10px/1.5 sans-serif;letter-spacing:1.5px;color:#ad6d80}
+.reminder-channels h3{font-size:17px;line-height:1.5;margin:8px 0}
+.channel-links{display:flex;gap:10px;flex-wrap:wrap}
+.channel-links a{display:inline-block;padding:9px 12px;border:1px solid #dccbc3;border-radius:10px;font-size:12px;color:#69483e;text-decoration:none;background:#fff}
+.channel-links a:hover{background:#f6e9e8}.channel-links a:focus-visible{outline:2px solid #ad6d80;outline-offset:3px}
+.channel-pending{font-size:12px;color:#786359}
+#login-notice .reminder-channels,.gift-login .reminder-channels{padding:0;margin:24px 0;width:100%}
+#login-notice .reminder-channel-grid,.gift-login .reminder-channel-grid{grid-template-columns:1fr}
+@media(max-width:600px){.reminder-channel-grid{grid-template-columns:1fr}.reminder-channels{margin:24px auto;padding:20px}.reminder-channels h2{font-size:20px}}
+.channel-links button.channel-cta{padding:12px 16px;border:1px solid #704332;border-radius:10px;background:#fce4eb;color:#39261f;font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+.reminder-store-dialog{position:fixed;inset:0;margin:auto;width:min(400px,calc(100% - 40px));box-sizing:border-box;padding:30px 24px;border:1.5px solid #704332;border-radius:18px;background:#fffaf4;color:#39261f}
+.reminder-store-dialog::backdrop{background:#39261f70}.reminder-store-dialog h2{font-size:20px;margin:8px 0 12px}.reminder-store-dialog p{font-size:13px;line-height:1.7}.reminder-store-dialog .channel-links{display:grid;gap:12px;margin-top:20px}.reminder-store-dialog .channel-cta{padding:14px;text-align:center;background:#704332;color:#fffaf4;font-weight:700}.store-close{position:absolute;right:12px;top:8px;border:0;background:transparent;color:#704332;font-size:26px;cursor:pointer}

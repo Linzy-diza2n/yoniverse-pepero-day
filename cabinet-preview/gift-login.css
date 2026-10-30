@@ -1,0 +1,43 @@
+/* Chocolate outlines, blush paper and the handwritten date from the gift flow. */
+.gift-login{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:48px;max-width:1000px;min-height:0;margin:0 auto;padding:64px 28px 80px;text-align:left}
+.login-paper{position:relative;background:var(--brand-paper);border:1.5px solid var(--brand-primary);border-radius:6px 6px 30px 6px;box-shadow:5px 6px 0 var(--brand-blush);padding:38px 32px 30px;text-align:center}
+.login-paper:before{content:'';position:absolute;top:-13px;left:calc(50% - 43px);width:86px;height:26px;background:#f8b7ceaa;transform:rotate(-5deg);border-inline:1px dashed #c98c9b}
+.login-label{font:600 10px/1.5 sans-serif;letter-spacing:2px;color:var(--brand-primary)}
+.login-date{font-family:'Ongleip Konkon',cursive;font-size:78px;line-height:1.3;letter-spacing:-5px;color:var(--brand-primary);margin:18px 0 8px;transform:rotate(-4deg)}
+.login-date span{color:#c78a9b;margin:0 8px}
+.gift-login h1{font-size:29px;line-height:1.5;letter-spacing:-1px;margin:8px 0 16px}
+.gift-login p{font-size:13px;color:var(--brand-muted);margin:0;line-height:1.8}
+.login-actions{width:100%;margin:28px 0 20px}
+.kakao-login{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:54px;border:1.5px solid var(--brand-ink);border-radius:12px;background:#fee500;color:#392c1e;font-weight:700;font-size:15px;box-shadow:0 3px 0 var(--brand-ink)}
+.kakao-login:disabled{cursor:not-allowed}.kakao-login svg{width:20px;height:20px;fill:currentColor}
+:is(.gift-login,.completion-reminders) .login-status{font-size:11px;margin-top:12px}
+:is(.gift-login,.completion-reminders) .cabinet-signup{font-size:12px;margin-bottom:12px}:is(.gift-login,.completion-reminders) .send-rule{font-size:12px;margin-bottom:24px}
+:is(.gift-login,.completion-reminders) .back-link{font-size:12px;color:var(--brand-primary)}
+.login-reminders{min-width:0}
+:is(.gift-login,.completion-reminders) .email-reminder{padding:0 0 24px;margin:0;border:0;border-bottom:1px dashed #c6aa9a;border-radius:0;background:transparent}
+:is(.gift-login,.completion-reminders) .email-reminder h3{font-size:20px;line-height:1.5;margin:0 0 10px}
+:is(.gift-login,.completion-reminders) .email-reminder label{font-size:13px;margin:14px 0}
+:is(.gift-login,.completion-reminders) .email-reminder input[type=checkbox]{accent-color:var(--brand-primary)}
+:is(.gift-login,.completion-reminders) .email-reminder p{font-size:12px;margin:8px 0 12px}
+:is(.gift-login,.completion-reminders) .email-reminder .reminder-preview{font-size:11px;color:#897970;margin-bottom:0}
+:is(.gift-login,.completion-reminders) .reminder-channels{margin:22px 0 0;padding:0}
+:is(.gift-login,.completion-reminders) .reminder-channels h2{font-size:17px;line-height:1.5}
+:is(.gift-login,.completion-reminders) .reminder-channels>p{font-size:12px;margin-bottom:16px}
+:is(.gift-login,.completion-reminders) .reminder-channel-grid{gap:12px}
+:is(.gift-login,.completion-reminders) .reminder-channel-grid article{padding:16px 18px;border:1px solid #d9bcb0;border-radius:4px 15px 4px 15px;background:#fffaf4}
+:is(.gift-login,.completion-reminders) .reminder-channel-grid article:first-child{background:#fff5f8}
+:is(.gift-login,.completion-reminders) .reminder-channel-grid h3{font-size:15px;margin:5px 0}
+:is(.gift-login,.completion-reminders) .reminder-channel-grid p{font-size:12px;margin:0 0 12px}
+:is(.gift-login,.completion-reminders) .channel-tag{color:var(--brand-primary);font-size:9px}
+:is(.gift-login,.completion-reminders) .channel-links a{background:transparent;border:0;border-bottom:1px solid #c6aa9a;border-radius:0;padding:4px 0;font-size:12px}
+@media(max-width:720px){.gift-login{grid-template-columns:1fr;gap:36px;max-width:480px;padding:36px 22px 60px}.login-paper{padding:28px 24px}.login-date{font-size:62px;margin:12px 0 4px}.gift-login h1{font-size:26px}.login-actions{margin-top:24px}}
+:is(.gift-login,.completion-reminders) .channel-links .channel-cta{display:flex;align-items:center;justify-content:center;width:100%;box-sizing:border-box;min-height:46px;padding:12px 14px;border:1.5px solid var(--brand-primary);border-radius:10px;background:var(--brand-primary);color:var(--brand-paper);font-family:inherit;font-size:13px;font-weight:700;line-height:1.5;text-decoration:none;box-shadow:0 3px 0 var(--brand-ink);cursor:pointer}
+:is(.gift-login,.completion-reminders) .channel-links .channel-cta:hover{background:var(--brand-primary-hover)}
+:is(.gift-login,.completion-reminders) .channel-links a.channel-cta{background:var(--brand-blush);color:var(--brand-ink)}
+:is(.gift-login,.completion-reminders) .channel-links a.channel-cta:hover{background:var(--brand-pink)}
+
+:is(.gift-login,.completion-reminders) .reminder-channels h2{margin-bottom:16px}
+
+.gift-login{grid-template-columns:1fr;max-width:520px}
+.completion-reminders{width:100%;max-width:460px;box-sizing:border-box;margin:40px auto 0;text-align:left}
+.completion-reminders[hidden]{display:none}

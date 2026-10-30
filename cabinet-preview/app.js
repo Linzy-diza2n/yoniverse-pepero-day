@@ -31,7 +31,8 @@ Object.assign(doodles, {
 });
 const NAME_LIMIT = 6;
 const nameCharacters = value => Array.from(new Intl.Segmenter('ko',{granularity:'grapheme'}).segment(value), part=>part.segment);
-function stickerSvg(key) { if(!doodles[key]) return ''; return '<svg viewBox="0 0 100 100" aria-hidden="true" focusable="false" fill="none" stroke="#151515" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">'+doodles[key]+'</svg>'; }
+Object.assign(doodles, {"strawberry": "<path d=\"M21 40C15 63 40 88 50 91C63 86 87 59 79 40Q50 20 21 40Z\" fill=\"#ef819e\"/><path d=\"m50 34-22-9 11 17-20 3 24 8 7-14 8 14 23-9-20-3 11-16Z\" fill=\"#91cba5\"/><path d=\"m34 59 2 4m26-4-2 4m-12 9 2 4m-1-22 1 4\" stroke=\"#fff1ce\"/>", "butterfly": "<path d=\"M48 50C21 2 2 20 16 49Q-2 76 25 81Q41 80 49 59C59 87 84 91 87 72Q91 57 78 51C99 16 71 5 52 49Z\" fill=\"#c9b5ed\"/><path d=\"M48 45Q50 39 53 46L55 67Q50 75 46 67Z\" fill=\"#fff0b1\"/><path d=\"m48 44-9-16m13 16 9-16M23 36l13 11m31-10-7 11\"/>", "loveletter": "<path d=\"M12 25h76v53H12Z\" fill=\"#fff4db\"/><path d=\"m12 25 38 31 38-31M12 78l26-32m50 32L62 46\"/><path d=\"M50 62C29 51 38 37 50 47C63 36 72 51 50 62Z\" fill=\"#ef9dbf\"/>", "checkerheart": "<path d=\"M50 86C36 74 11 54 12 32C13 10 39 9 50 28C62 9 86 10 88 32C90 53 65 76 50 86Z\" fill=\"#f4b6cd\"/><path d=\"M32 30h18v18H32Zm18 18h18v18H50ZM16 30h16V16Q21 17 16 30ZM68 30h18Q83 18 68 16ZM32 66h18v18L32 69Z\" fill=\"#fff4dc\" stroke=\"none\"/>", "petal": "<path d=\"M50 42C16 5 3 37 31 50C3 65 23 96 50 61C77 96 97 64 69 50C96 35 80 5 50 42Z\" fill=\"#ffd887\"/><circle cx=\"50\" cy=\"51\" r=\"10\" fill=\"#ef9dbf\"/><path d=\"m21 12 4 6m59 63 5 5\"/>"});
+function stickerSvg(key) { if(!doodles[key]) return ''; return '<svg viewBox="0 0 100 100" aria-hidden="true" focusable="false" fill="none" stroke="#151515" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">'+doodles[key]+'</svg>'; }
 function sketchSvg(cls, body) { return '<svg class="'+cls+'" viewBox="0 0 240 420" preserveAspectRatio="none" aria-hidden="true" fill="none" stroke="#151515" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">'+body+'</svg>'; }
 $('cabinet').insertAdjacentHTML('afterbegin',sketchSvg('cabinet-ink','<path fill="var(--cab-dark)" d="M15 7 L227 7 Q232 7 236 15 L236 408 Q236 415 229 415 L15 410Z"/><path fill="var(--cab)" d="M14 5 Q7 5 7 13 L7 399 Q7 406 14 406 L222 406 Q229 406 229 399 L229 13 Q229 5 222 5Z"/>'));
 $('door').insertAdjacentHTML('afterbegin',sketchSvg('door-ink','<path fill="var(--cab)" d="M15 6 Q8 6 8 14 L8 400 Q8 408 16 408 L223 408 Q230 408 230 400 L230 14 Q230 6 222 6Z"/><path d="M25 21 Q20 21 20 27 L20 387 Q20 393 26 393 L211 393 Q217 393 217 387 L217 27 Q217 21 211 21Z"/><path d="M60 370 Q119 369 178 370 M60 380 Q119 379 178 380"/>'));
@@ -40,7 +41,7 @@ document.querySelector('.mini-sticker').innerHTML=stickerSvg('☺');
 
 
 let saved = {}; try { saved = JSON.parse(localStorage.getItem('cabinet-concept-v1')) || {}; } catch {}
-const state = {name: typeof saved.name === 'string' && saved.name.trim() ? nameCharacters(saved.name.trim()).slice(0,NAME_LIMIT).join('') : '요니', color: Number.isInteger(saved.color) && colors[saved.color] ? saved.color : 0, sticker: ['♡','✿','✧','☺','cherry','planet','bow','bolt','cloud','pepero','music','sun','clover','cat','spark'].includes(saved.sticker) ? saved.sticker : '✧'};
+const state = {name: typeof saved.name === 'string' && saved.name.trim() ? nameCharacters(saved.name.trim()).slice(0,NAME_LIMIT).join('') : '요니', color: Number.isInteger(saved.color) && colors[saved.color] ? saved.color : 0, sticker: ['♡','✿','✧','☺','cherry','planet','bow','bolt','cloud','pepero','music','sun','clover','cat','spark','strawberry','butterfly','loveletter','checkerheart','petal'].includes(saved.sticker) ? saved.sticker : '✧'};
 const legacyStickers = [['sticker',.60,62],['stickerBottom',.75,46]].flatMap(([slot,y,size],index)=>{
  const key=saved[slot]===null?null:(Object.hasOwn(doodles,saved[slot])?saved[slot]:(index?'☺':'✧'));
  return key?[{id:'legacy-'+index,key,x:saved.positions?.[slot]?.x??.5,y:saved.positions?.[slot]?.y??y,size}]:[];
@@ -54,14 +55,14 @@ function toast(message) { $('toast').textContent=message; $('toast').classList.a
 function save() { try {localStorage.setItem('cabinet-concept-v1',JSON.stringify(state));} catch {toast('저장 공간을 사용할 수 없어 이번 화면에만 적용했어요.');} }
 function render() {
  syncEditorPreview();
- $('ownerName').textContent=state.name; $('plateName').textContent=state.name; 
+ $('plateName').textContent=state.name; 
  syncDecorations($('door'),false);
  const c=colors[state.color]; ['--cab','--cab-dark','--cab-light'].forEach((key,i)=>document.documentElement.style.setProperty(key,c[i+1]));
  document.querySelectorAll('.swatch').forEach((b,i)=>{b.classList.toggle('selected',i===state.color);b.setAttribute('aria-pressed',i===state.color);});
  document.querySelectorAll('.sticker').forEach(b=>{b.classList.toggle('selected',b.dataset.sticker===state.decorations.find(item=>item.id===activeStickerSlot)?.key);b.setAttribute('aria-pressed',b.dataset.sticker===state.decorations.find(item=>item.id===activeStickerSlot)?.key);});
 }
 colors.forEach((c,i)=>{const b=document.createElement('button');b.type='button';b.className='swatch';b.style.background=c[1];b.setAttribute('aria-label',c[0]);b.onclick=()=>{state.color=i;render();};$('swatches').append(b);});
-['♡','✿','✧','☺','cherry','planet','bow','bolt','cloud','pepero','music','sun','clover','cat','spark'].forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.className='sticker';b.dataset.sticker=s;b.innerHTML=stickerSvg(s);b.setAttribute('aria-label',['하트','꽃','별','스마일','체리','행성','리본','번개','구름','초콜릿','음표','해님','클로버','고양이','반짝임'][i]+' 스티커');b.onclick=()=>{
+['♡','✿','✧','☺','cherry','planet','bow','bolt','cloud','pepero','music','sun','clover','cat','spark','strawberry','butterfly','loveletter','checkerheart','petal'].forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.className='sticker';b.dataset.sticker=s;b.innerHTML=stickerSvg(s);b.setAttribute('aria-label',['하트','꽃','별','스마일','체리','행성','리본','번개','구름','초콜릿','음표','해님','클로버','고양이','반짝임','딸기','나비','편지봉투','체커보드 하트','네잎꽃'][i]+' 스티커');b.onclick=()=>{
  const index=state.decorations.length;
  const item={id:crypto.randomUUID(),key:s,x:.27+(index%3)*.22,y:.59+(Math.floor(index/3)%3)*.10,size:62};
  state.decorations.push(item);activeStickerSlot=item.id;render();
@@ -122,14 +123,18 @@ $('name').onblur=validateName;
 
 function info(title,body){$('infoTitle').textContent=title;$('infoBody').textContent=body;$('paymentNotice').hidden=true;$('okay').textContent='알겠어요';$('okay').onclick=()=>$('info').close();if(!$('info').open)$('info').showModal();}
 $('gift').onclick=()=>info('마음을 담은 편지','달콤한 하루가 되길 바라요! 응원하는 마음을 담아서 보냈어요. — 미리보기용 샘플 편지');
-$('invite').onclick=async()=>{
+function cabinetShareLink(){
  const link=new URL("visitor.html",location.href);
  let school=null; try {school=JSON.parse(localStorage.getItem("yoniverse-school-preview-v1"));} catch {}
  link.searchParams.set("cabinet",JSON.stringify({name:state.name,color:state.color,decorations:state.decorations,school}));
  for(const key of [...link.searchParams.keys()]) if(key.startsWith('preview')) link.searchParams.delete(key);
  link.hash='';
- try { await navigator.clipboard.writeText(link.href); toast('내 캐비넷 링크를 복사했어요'); }
- catch { info('링크를 직접 복사해 주세요',link.href); }
+ return link.href;
+}
+$('invite').onclick=async()=>{
+ const link=cabinetShareLink();
+ try { await navigator.clipboard.writeText(link); toast('내 캐비넷 링크를 복사했어요'); }
+ catch { info('링크를 직접 복사해 주세요',link); }
 };
 $('closeInfo').onclick=()=>$('info').close();$('okay').onclick=()=>$('info').close();
 render();
@@ -184,7 +189,7 @@ let cabinetPaymentCompleted = false;
 let lockEffectTimer;
 let previewLockEffects = new URLSearchParams(location.search).get('previewEffects') === '1';
 $('door').insertAdjacentHTML('beforeend', '<div class="lock-sparkles" id="lockSparkles" aria-hidden="true">' +
- ['♡','✧','☺','✧','♡','☺','♡','✧','☺','✧','♡','☺'].map((key,i)=>'<span class="lock-particle particle-'+i+'">'+stickerSvg(key)+'</span>').join('') + '</div>');
+ ['♡','✧','loveletter','pepero','♡','☺','loveletter','✧','pepero','✧','♡','☺'].map((key,i)=>'<span class="lock-particle particle-'+i+'">'+stickerSvg(key)+'</span>').join('') + '</div>');
 function shouldCelebrateLock(now, paid) {
  return !paid && cabinetPhase(now) === 'payment';
 }
@@ -469,7 +474,8 @@ function selectEditorTab(key){
 }
 function resizeEditorCabinet(){
  const box=$('editorPreview');if(!box || !$('editor').open)return;
- box.style.setProperty('--editor-scale',Math.min((box.clientHeight-30)/416,(box.clientWidth-50)/234,1.45));
+ const mobileFactor = window.matchMedia('(max-width:650px)').matches ? .9 : 1;
+ box.style.setProperty('--editor-scale',Math.max(.1,Math.min((box.clientHeight-30)/416,(box.clientWidth-50)/234,1.45))*mobileFactor);
 }
 new ResizeObserver(resizeEditorCabinet).observe(editorPreview);
 function syncDecorations(door,editable){

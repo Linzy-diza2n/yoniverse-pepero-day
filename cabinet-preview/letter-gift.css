@@ -1,0 +1,26 @@
+.letter-desk{display:grid;grid-template-columns:.8fr 1.2fr;align-items:center;gap:24px;margin-top:32px;padding:40px 30px;background:#ebc695 url('assets/worktop-grain.svg') center/480px 360px;border:1px solid #c59867;border-radius:22px;box-shadow:0 5px 0 #bb8a59,inset 0 2px 0 #fff0d0;text-align:left}
+.letter-gift{transform:rotate(-8deg);filter:drop-shadow(3px 6px 2px #79502c25)}.letter-gift svg{display:block;width:100%;max-height:390px}
+.letter-paper{position:relative;padding:28px;background:#fffdf3;border:1px solid #e4cfb0;border-radius:3px 3px 16px 3px;box-shadow:3px 5px 0 #936e4630;min-width:0}
+
+.letter-heading{display:flex;align-items:center;justify-content:space-between;font-weight:800;font-size:18px;margin-bottom:16px}
+#message{box-sizing:border-box;display:block;width:100%;height:256px;resize:vertical;border:0;border-radius:0;background:repeating-linear-gradient(transparent 0 31px,#ddccb350 31px 32px);font:inherit;font-size:16px;line-height:32px;color:var(--brand-ink);padding:0;outline:none}
+#message::placeholder,#sender::placeholder{color:#a4998e}.letter-count{text-align:right;font-size:11px;color:#9c8c7b;margin-top:12px}
+.sender-row{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin-top:22px}.sender-row label{font-size:15px;font-weight:700}#sender{box-sizing:border-box;width:160px;min-width:0;border:0;border-bottom:1px solid #cdb99e;border-radius:0;background:transparent;padding:8px 2px;font:inherit;font-size:16px;color:var(--brand-ink)}
+.letter-status{font-size:13px;color:var(--brand-muted);text-align:right;min-height:20px}
+@media(max-width:650px){.letter-desk{grid-template-columns:1fr;gap:0;padding:12px 18px 26px;margin-top:24px}.letter-gift{justify-self:end;width:105px;height:116px;transform:rotate(9deg);margin-right:12px}.letter-gift svg{height:124px}.letter-paper{padding:24px 20px 20px}#message{height:224px}.progress{margin-bottom:24px}.shape-step h1{font-size:26px}.sender-row{margin-top:12px}.letter-heading{margin-bottom:12px}}
+.shape-step .font-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:24px 0 0;padding:0;border:0}
+.font-options label{position:relative;display:flex;align-items:center;justify-content:center;min-height:48px;padding:10px 6px;border:1.5px solid #dcc7b8;border-radius:14px;background:#fffaf4;cursor:pointer}
+.font-options input{position:absolute;opacity:0;width:1px;height:1px}.font-options label:has(input:checked){background:#fbe6ee;border-color:#704332;box-shadow:0 2px 0 #704332}.font-options label:has(input:focus-visible){outline:3px solid #ae5271;outline-offset:3px}
+.font-options [data-font=cute]{font-family:'Gaegu','Noto Sans KR',sans-serif;font-size:19px}.font-options [data-font=neat]{font-family:'Ongleip Konkon','Noto Sans KR',sans-serif;font-size:18px}.font-options [data-font=clean]{font-family:'Noto Sans KR',sans-serif;font-size:13px}
+.letter-paper[data-font=cute]{--writing-font:'Gaegu','Noto Sans KR',sans-serif;--writing-size:22px}
+.letter-paper[data-font=neat]{--writing-font:'Ongleip Konkon','Noto Sans KR',sans-serif;--writing-size:21px}
+.letter-paper[data-font=clean]{--writing-font:'Noto Sans KR',sans-serif;--writing-size:16px}
+.instagram-row{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin-top:18px}.instagram-row label{font-size:12px;white-space:nowrap;color:#796657}.instagram-input{display:flex;align-items:center;gap:4px;width:160px;min-width:0;border-bottom:1px solid #cdb99e;color:#a38b77}.instagram-input input{width:100%;min-width:0;border:0;border-radius:0;background:transparent;padding:8px 0;font:inherit;font-size:16px;color:var(--brand-ink)}.instagram-input input::placeholder{color:#a4998e}.sender-row{margin-top:12px}
+@media(max-width:380px){.font-options [data-font=cute]{font-size:17px}.font-options [data-font=neat]{font-size:16px}.font-options [data-font=clean]{font-size:11px}.instagram-input,#sender{width:135px}}
+
+.letter-paper{font-family:var(--writing-font,'Noto Sans KR',sans-serif)}
+.letter-paper #message,.letter-paper #sender,.letter-paper .letter-heading,.letter-paper .sender-row label{font-family:var(--writing-font);font-size:var(--writing-size);font-weight:400}
+.letter-paper .letter-count,.letter-paper .instagram-row{font-family:'DM Sans','Noto Sans KR',sans-serif}
+.letter-paper input::placeholder,.letter-paper textarea::placeholder{font-family:'DM Sans','Noto Sans KR',sans-serif;font-size:16px;font-weight:400;letter-spacing:normal}
+
+#message:focus,#message:focus-visible{outline:none;box-shadow:none}

@@ -12,7 +12,7 @@
 .cabinet-theme main>.stage .cabinet{margin-top:66px;transform:translateX(var(--cabinet-center-offset,0px)) scale(1.12)}
 .cabinet-sidebar{grid-area:sidebar;min-width:0;padding-top:12px}
 .cabinet-sidebar .school-card{margin:0;max-width:none;padding:22px;box-shadow:3px 3px 0 #f8b7ce}
-.cabinet-sidebar .school-card h2{font-size:23px}
+.cabinet-sidebar .school-card h2{font-size:21px}
 .cabinet-sidebar .letter-note{margin:32px 0 0;padding:22px 18px 16px;transform:none;border-width:1px;box-shadow:none}
 .cabinet-sidebar .letter-note h3{font-size:13px;margin:7px 0}
 .cabinet-sidebar .letter-note p{font-size:11px;margin:0}
@@ -52,3 +52,12 @@
 /* Keep the possessive suffix with the nickname inside one flex item. */
 .cabinet-theme .owner-label{display:inline}
 .cabinet-theme .intro h1 em:before{background:#fbd6e3}
+
+/* Anchor the room to the measured cabinet row, not a percentage of stage height. */
+.cabinet-theme .stage{--ceiling-edge:max(28px,calc(var(--row-top,86px) - 24px))}
+.cabinet-theme .stage .hall-ceiling{height:var(--ceiling-edge);z-index:1}
+.cabinet-theme .stage .hall-wall{inset:0;background:#f5f3ef;z-index:0}
+.cabinet-theme .stage .hall-wall:after{content:"";position:absolute;left:27%;right:27%;top:var(--ceiling-edge);height:1px;background:#d9d5cf}
+.cabinet-theme .stage .hall-bank{z-index:2}
+.cabinet-theme .stage .hall-floor{z-index:1}
+.cabinet-theme .stage .hall-light{top:calc(var(--ceiling-edge) * .32);z-index:3}

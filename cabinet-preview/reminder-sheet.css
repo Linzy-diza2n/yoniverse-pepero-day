@@ -1,0 +1,14 @@
+.reminder-open{display:inline-flex;justify-content:center;align-items:center;margin-top:20px;padding:12px 20px;min-height:46px;border:1.5px solid #704332;border-radius:14px;background:#fff0d6;color:#704332;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+.reminder-open:hover{background:#fce4eb}.reminder-open[hidden]{display:none}
+html.reminder-sheet-open{overflow:hidden}
+body.cabinet-theme dialog.reminder-sheet{position:fixed;inset:auto 0 0;margin:0 auto;box-sizing:border-box;width:min(560px,100%);max-width:100%;max-height:88dvh;padding:0;border:1.5px solid #dbc9bf;border-bottom:0;border-radius:24px 24px 0 0;background:#fffaf4;color:#39261f;box-shadow:0 -12px 48px #39261f20;overflow:hidden}
+.reminder-sheet[open]{display:flex;flex-direction:column;animation:reminder-rise .22s ease-out}
+.reminder-sheet::backdrop{background:#39261f66}
+.reminder-sheet-header{position:relative;flex-shrink:0;padding:26px 24px 16px;border-bottom:1px solid #eadbd1}
+.reminder-sheet-header h2{font-size:19px;line-height:1.5;margin:0}.reminder-sheet-header h2:focus{outline:none}
+.sheet-grip{position:absolute;top:9px;left:calc(50% - 18px);width:36px;height:4px;border-radius:4px;background:#cbb6aa}
+.reminder-sheet-body{overflow-y:auto;overscroll-behavior:contain;padding:24px 24px max(28px,env(safe-area-inset-bottom));min-height:0}
+.reminder-sheet .completion-reminders{margin:0 auto;max-width:none}
+.reminder-sheet .reminder-channel-grid{grid-template-columns:1fr}
+@keyframes reminder-rise{from{transform:translateY(60px);opacity:0}to{transform:translateY(0);opacity:1}}
+@media(prefers-reduced-motion:reduce){.reminder-sheet[open]{animation:none}}
